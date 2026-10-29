@@ -39,6 +39,16 @@ bug fix of it, `1.0.1.0` a beta.
 Saves, settings and photos live in `%APPDATA%\Godot\app_userdata\ScrappWars`,
 not in the install folder; updates and uninstalling never touch them.
 
+## Report a bug
+
+In the game, press **Ctrl+Alt+B** wherever the bug is. The game saves a
+screenshot, asks what went wrong and opens a new
+[issue](https://github.com/RobertAgterhuis/Game-ScrappWars/issues) in your
+browser, filled in with your text and the game's version, place and settings.
+You send it there with your GitHub account, after dragging in the screenshot
+from the folder that opens. Without the game:
+[open an issue](https://github.com/RobertAgterhuis/Game-ScrappWars/issues/new?template=bug_report.md).
+
 ## Uninstall
 
 Run `%LOCALAPPDATA%\Programs\ScrappWars\ScrappWarsUpdater.exe --uninstall`.

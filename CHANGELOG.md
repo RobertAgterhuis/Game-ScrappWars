@@ -2,6 +2,19 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 0.5.0 fix 1 (0.5.0.1, 2026-10-29)
+
+### New
+
+- **Report a bug from inside the game.** Press Ctrl+Alt+B wherever something
+  goes wrong. The game saves a screenshot, pauses and asks what happened. "Open
+  on GitHub" opens a new issue in your browser, already filled in with your text
+  and the game's version, place and settings (optionally the last lines of the
+  log, without paths or your user name), and shows the screenshot in its folder
+  so you can drag it in. You send the issue with your own GitHub account; the
+  game never posts anything by itself.
+- The shortcut is listed on the controls page and in the controls help.
+
 ## 0.5.0 (0.5.0.0, 2026-10-29)
 
 The first public release of ScrappWars.
