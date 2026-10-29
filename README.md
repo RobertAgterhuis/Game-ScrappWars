@@ -4,8 +4,11 @@ A tiny scrap droid in a desert of giant wrecks. SD-7 wakes up beside a crashed
 freighter on the sun-bleached planet Kessra and has to scavenge parts, survive
 storms, worms and scavengers, and piece together why two fleets fell out of the sky.
 
-This repository only distributes the game: releases and the update channels.
-The source is not here.
+**Website, trailer and screenshots:** [robertagterhuis.github.io/Game-ScrappWars](https://robertagterhuis.github.io/Game-ScrappWars/)
+
+This repository only distributes the game: releases, the update channels and the
+website. The source is not here. What changed in each version:
+[CHANGELOG.md](CHANGELOG.md).
 
 ## Install (Windows 10/11, 64-bit)
 
@@ -40,7 +43,8 @@ not in the install folder; updates and uninstalling never touch them.
 
 Run `%LOCALAPPDATA%\Programs\ScrappWars\ScrappWarsUpdater.exe --uninstall`.
 
-## Licences
+## Licence
 
-ScrappWars is (c) 2026 Robert Agterhuis, all rights reserved. Third-party
-licences ship with the game in its `licenses` folder.
+ScrappWars is free to play and free to pass on unchanged; everything else is
+reserved. The terms are in [LICENSE.md](LICENSE.md). Third-party licences ship
+with the game in its `licenses` folder.
