@@ -2,6 +2,36 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 0.7.0 (0.7.0.0, 2026-10-29)
+
+The "Used Universe" update: Kessra and everything on it looks older, harder used and more lived in. Everything plays exactly as before.
+
+### A world that has been used
+
+- **Wear that tells a story:** paint chips off along edges down to primer, bare steel and rust; rust runs down below chips and rivets; matte black burn streaks mark hulls and weapons; sand settles in every seam and joint, in the colour of the ground around it.
+- **SD-7 shows what it went through:** a part that is wearing out looks it, and a repaired part is clean again.
+- **SD-7's new body,** cobbled together from mismatched freighter plating: an old riveted hull plate with its stencil, a cargo plate, a bare replacement sheet, welds with heat-blued halos and bolted patches.
+- **Coarse canvas:** every tarp, awning, tent and pennant is sun-bleached, stained, patched and torn at the edges.
+
+### Machines with dials
+
+- **Every screen is a CRT** with scan lines and phosphor glow, every readout an analog dial with a needle. Workbenches, beacons, charge pads, coolant stations, camps, the market, the vaults, the scrap train and the Dawnbreaker's bridge got cable bundles, toggles, push buttons and hydraulic rams.
+- Some needles show the real thing: the charge going into SD-7, the coolant left in a station, the power on a relay.
+
+### Landmarks
+
+- **Dunewell's houses are mud,** trowelled and patched, and five of them now have mechanical wind-catcher towers whose cowls turn into the wind.
+- **The Dawnbreaker** shows its heavy ribs where the hull is torn open, and its stern carries huge thruster bells with cooling pipes, rams and heat-blued, sooted throats.
+
+### Light
+
+- **A second, small sun:** Kessra's minor sun, pale and cool, crosses the sky a little behind the big one.
+- Richer contrast at every hour, dust that catches the light, and glow only where a real lamp or screen shines.
+
+### Fixes
+
+- Settings, menus and photo mode looks all work with the new look; no more warnings in the log at Dunewell.
+
 ## 0.6.0 fix 1 (0.6.0.1, 2026-10-29)
 
 A polish update: faster start-up, menus that fit every screen, a new icon and more of Kessra's own look.
