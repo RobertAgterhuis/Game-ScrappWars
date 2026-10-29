@@ -1,6 +1,6 @@
 # ScrappWars
 
-A tiny scrap droid in a desert of giant wrecks. SD-7 wakes up beside a crashed
+A tiny scrapper in a desert of giant wrecks. SD-7 wakes up beside a crashed
 freighter on the sun-bleached planet Kessra and has to scavenge parts, survive
 storms, worms and scavengers, and piece together why two fleets fell out of the sky.
 

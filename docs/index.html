@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ScrappWars</title>
-<meta name="description" content="A small droid in a desert of giant wrecks. A free game for Windows.">
+<meta name="description" content="A small scrapper in a desert of giant wrecks. A free game for Windows.">
 <meta property="og:title" content="ScrappWars">
-<meta property="og:description" content="A small droid. A big desert. A war that never got its last message.">
+<meta property="og:description" content="A small scrapper. A big desert. A war that never got its last message.">
 <meta property="og:image" content="https://robertagterhuis.github.io/Game-ScrappWars/media/poster.jpg">
 <meta property="og:type" content="website">
 <link rel="icon" href="media/icon.svg" type="image/svg+xml">
@@ -195,6 +195,31 @@ code { font-family: Consolas, "Courier New", monospace; font-size: 0.9em; backgr
 kbd { font-family: var(--display); font-weight: 700; font-size: 0.95em; background: var(--ink); color: var(--amber); padding: 1px 7px; border-radius: 3px; white-space: nowrap; }
 @media (max-width: 860px) { .bugs .wrap { grid-template-columns: 1fr; } .bugs figure { position: static; } }
 
+/* What's next: the road ahead, a dashed track from the version you have to what follows. */
+.next h2 { margin-bottom: 14px; }
+.next .lead { margin-bottom: 40px; }
+.track { --step: clamp(24px, 3vw, 44px); list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px var(--step); }
+.track > li { position: relative; padding-top: 66px; }
+/* The dashed road runs from each stop to the next one. */
+.track > li:not(:last-child)::after { content: ""; position: absolute; left: 46px; right: calc(-1 * var(--step)); top: 21px; border-top: 3px dashed var(--dune); }
+.track > li::before {
+	content: ""; position: absolute; left: 0; top: 0; width: 46px; height: 46px; border-radius: 50%;
+	background: var(--sand); border: 3px solid var(--ink);
+}
+.track > li.here::before { background: var(--amber); }
+.track .when { font: 700 0.95rem var(--display); letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber-deep); margin: 0 0 4px; }
+.track h3 { margin-bottom: 8px; }
+.track p { font-size: 0.98rem; }
+.track ul { margin: 0; padding-left: 1.1em; font-size: 0.98rem; }
+.track ul li { margin-bottom: 4px; }
+.call { margin-top: 40px; padding-top: 24px; border-top: 2px solid var(--dune); }
+.call h3 { margin-bottom: 10px; }
+@media (max-width: 860px) {
+	.track { grid-template-columns: 1fr; gap: 0; }
+	.track > li { padding: 0 0 34px 72px; }
+	.track > li:not(:last-child)::after { left: 21px; right: auto; top: 46px; bottom: 0; border-top: 0; border-left: 3px dashed var(--dune); }
+}
+
 footer { background: var(--ink); color: #cbbca3; padding: 34px var(--gutter); font-size: 0.95rem; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px 30px; }
 footer nav { display: flex; flex-wrap: wrap; gap: 8px 24px; }
@@ -212,6 +237,7 @@ footer a { color: var(--sand); }
 		<a href="#story">Story</a>
 		<a href="#install">Install</a>
 		<a href="#bugs">Bugs</a>
+		<a href="#next">What's next</a>
 		<a class="go" href="https://github.com/RobertAgterhuis/Game-ScrappWars/releases/latest">Download</a>
 	</nav>
 </header>
@@ -225,9 +251,9 @@ footer a { color: var(--sand); }
 		</div>
 		<div class="title">
 			<h1>SCRAPPWARS</h1>
-			<p class="tagline">A small droid. A big desert. A war that never got its last message.</p>
+			<p class="tagline">A small scrapper. A big desert. A war that never got its last message.</p>
 			<a class="button" href="https://github.com/RobertAgterhuis/Game-ScrappWars/releases/latest">Download for Windows</a>
-			<p class="meta">Version 0.5.0 fix 1 for Windows 10 and 11 (64-bit), 254 MB. Free.</p>
+			<p class="meta">Version 0.6.0 for Windows 10 and 11 (64-bit), 262 MB. Free.</p>
 		</div>
 	</div>
 
@@ -235,7 +261,7 @@ footer a { color: var(--sand); }
 		<div class="wrap">
 			<div>
 				<h2>Knee-high on a planet of wrecks</h2>
-				<p>You are SD-7, the maintenance droid of a relief freighter that fell out of the sky. Kessra is a sun-bleached desert where two fleets fought for thirty years, and the wrecks they left are the size of hills.</p>
+				<p>You are SD-7, the maintenance scrapper of a relief freighter that fell out of the sky. Kessra is a sun-bleached desert where two fleets fought for thirty years, and the wrecks they left are the size of hills.</p>
 				<p>Every part you salvage changes how you move, not just a number: magnet legs walk up a hull, a thruster carries you across a gap, spider legs climb what nothing else can. Your body is your skill tree, and the desert is the map of what it can do.</p>
 				<ul class="facts">
 					<li><strong>Parts, not stats</strong>Wheels, mag-legs, spider legs, thruster, grapple, torch, scanner, shield, EMP and more, swapped at a workbench.</li>
@@ -246,7 +272,7 @@ footer a { color: var(--sand); }
 			</div>
 			<figure>
 				<img src="media/sd7-960.jpg" srcset="media/sd7-960.jpg 960w, media/sd7.jpg 1920w" sizes="(max-width: 860px) 100vw, 45vw"
-					width="1920" height="1080" alt="SD-7, a small round droid with a thruster and a dish on its head, in front of a rusting freighter">
+					width="1920" height="1080" alt="SD-7, a small round scrapper with a thruster and a dish on its head, in front of a rusting freighter">
 				<figcaption>SD-7, built from whatever it finds.</figcaption>
 			</figure>
 		</div>
@@ -255,7 +281,7 @@ footer a { color: var(--sand); }
 	<section class="strip" id="screenshots" aria-labelledby="screenshots-title">
 		<h2 id="screenshots-title">Screenshots</h2>
 		<div class="reel" tabindex="0" aria-label="Screenshots, scroll sideways">
-			<figure><img src="media/dunewell-1280.jpg" srcset="media/dunewell-1280.jpg 1280w, media/dunewell.jpg 1920w" sizes="min(78vw, 980px)" width="1920" height="1080" loading="lazy" alt="Dunewell at sunset, domed houses and market stalls round a well derrick"><figcaption><b>Dunewell</b>At sunset: a well, a market and eight plastered houses.</figcaption></figure>
+			<figure><img src="media/dunewell-1280.jpg" srcset="media/dunewell-1280.jpg 1280w, media/dunewell.jpg 1920w" sizes="min(78vw, 980px)" width="1920" height="1080" loading="lazy" alt="Dunewell at sunset: plastered houses with wind-catcher towers, domes and market stalls round a well derrick"><figcaption><b>Dunewell</b>At sunset: a well, a market and a town built from the wrecks.</figcaption></figure>
 			<figure><img src="media/wren-1280.jpg" srcset="media/wren-1280.jpg 1280w, media/wren.jpg 1920w" sizes="min(78vw, 980px)" width="1920" height="1080" loading="lazy" alt="The wreck of a long freighter in the desert at dusk"><figcaption><b>The Patient Wren</b>SD-7's own ship, broken in the sand close to home.</figcaption></figure>
 			<figure><img src="media/hollowmere-1280.jpg" srcset="media/hollowmere-1280.jpg 1280w, media/hollowmere.jpg 1920w" sizes="min(78vw, 980px)" width="1920" height="1080" loading="lazy" alt="Mangroves standing in a misty swamp beside a crashed ship with a glass dome"><figcaption><b>Hollowmere</b>A green crater where a crashed terraformer still breathes.</figcaption></figure>
 			<figure><img src="media/camp-1280.jpg" srcset="media/camp-1280.jpg 1280w, media/camp.jpg 1920w" sizes="min(78vw, 980px)" width="1920" height="1080" loading="lazy" alt="A small camp of tarps and crates lit by a fire under the night sky"><figcaption><b>A traders' camp</b>Its lamp burns all night, for anyone still out there.</figcaption></figure>
@@ -283,7 +309,7 @@ footer a { color: var(--sand); }
 			</ol>
 			<div class="aside">
 				<h3>Off the road</h3>
-				<p>Dunewell's market and houses, the green crater of Hollowmere and what lives in its swamp, the Scorch, sealed supply vaults, broken signal beacons, droids lost in storms, a scrap train that never stops, traders' contracts and photo jobs: side jobs that pay in scrap, and places no objective sends you.</p>
+				<p>Dunewell's market and houses, the green crater of Hollowmere and what lives in its swamp, the Scorch, sealed supply vaults, broken signal beacons, scrappers lost in storms, a scrap train that never stops, traders' contracts and photo jobs: side jobs that pay in scrap, and places no objective sends you.</p>
 			</div>
 		</div>
 	</section>
@@ -307,7 +333,7 @@ footer a { color: var(--sand); }
 			<h2>The story</h2>
 			<p>For thirty years the Helion Directorate and the Sable Free Fleet fought over Kessra's sky. Squadrons burned above the dunes; on the sand, walkers and tanks fought for every ridge until the desert became a graveyard of machines.</p>
 			<p>Then came the Patient Wren: a neutral freighter carrying water, medicine and seed for the settlements. Both fleets were told she carried weapons. Both fleets opened fire. She fell into the desert, and her crew was lost.</p>
-			<p class="voice">All but one small droid, still waiting for orders.</p>
+			<p class="voice">All but one small scrapper, still waiting for orders.</p>
 			<p>SD-7 wakes up with no ship to maintain. WREN, what is left of the freighter's mind, still reaches it on the radio, and she has a plan: with the Wren's signal core and a big enough transmitter, both fleets could be told the truth. The only transmitter left is on the Dawnbreaker, and its amplifier is burnt out. Four parts, scattered across the desert, could fix it.</p>
 			<p>On the way, the wrecks talk. Memory cores in pods, cabins and bridges hold the last words of pilots, miners, captains, a botanist and an admiral, and slowly they tell how the war really went, and how close it came to ending.</p>
 
@@ -315,13 +341,15 @@ footer a { color: var(--sand); }
 				<summary>How it ends (spoilers)</summary>
 				<div class="spoiler">
 					<p>The cease-fire was never the problem. Admiral Veyl had it drafted on the Dawnbreaker's bridge, agreed by both sides after the Wren went down, to go out at dawn on every channel. Then the last Sable walker hit the bridge, the amplifier burnt out, and the message never left.</p>
-					<p>With the focus lens, the power cell, the resonance crystal and the antenna coupler, SD-7 rebuilds the amplifier, climbs the collapsed decks on spider legs and puts the Wren's signal core into the transmitter. Its last log, from the admiral, reads: send it.</p>
+					<p>And the lie had a sender. A signals officer who never reached the escape pod in the Crater Sea left the answer in the sand: she told both fleets the same lie on the same night, on orders from her own side, because a relief ship that landed would have given the settlements water without asking whose side they were on. On the bridge, the admiral's last log admits he never asked who wrote it.</p>
+					<p>With the focus lens, the power cell, the resonance crystal and the antenna coupler, SD-7 rebuilds the amplifier. It throws the deck relays to bring the bridge back to life, and climbs the collapsed decks on spider legs while the ship settles and groans around it. Then it puts the Wren's signal core into the transmitter.</p>
+					<p>The broadcast needs all of WREN. She says goodbye before she goes out on every channel.</p>
 					<h3 class="signal">SIGNAL SENT</h3>
-					<p>The camera pulls away into the sky. At sunset, beacons light up one after another across the desert, at every camp, station, droid and memory core, in a wave rolling out from the flagship. The Dawnbreaker's transmitter wakes one last time, and on every channel, in every fleet, the same message goes out: cease-fire. It's over.</p>
-					<p>Three days later the first relief ship lands on Kessra. Its crew finds a small, rusty droid waiting by the escape pod, still maintaining.</p>
+					<p>The camera pulls away into the sky. At sunset, beacons light up one after another across the desert, at every camp, station, scrapper and memory core, in a wave rolling out from the flagship. The Dawnbreaker's transmitter wakes one last time, and on every channel, in every fleet, WREN's own voice says it: no weapons aboard, cease-fire. It's over.</p>
+					<p>Three days later the first relief ship lands on Kessra. Its crew finds a small, rusty scrapper waiting by the escape pod, still maintaining.</p>
 					<div class="after">
 						<h3>When the game is over, and after</h3>
-						<p>The main story is finished when the cease-fire is sent: the twentieth and last of WREN's objectives. The ending screen shows how many days you spent on Kessra, how many memories you recovered and how many scrap hunters you salvaged. Then the game simply goes on: the message keeps going out, and every side job, memory core, vault and corner of the map you have not found is still there.</p>
+						<p>The main story is finished when the cease-fire is sent: the last of WREN's twenty-one objectives. The ending screen shows how many days you spent on Kessra, how many memories you recovered and how many scrap hunters you salvaged. Then the game simply goes on, with the radio quiet now: the message keeps going out, and every side job, memory core, vault and corner of the map you have not found is still there.</p>
 					</div>
 				</div>
 			</details>
@@ -333,7 +361,7 @@ footer a { color: var(--sand); }
 			<div>
 				<h2>Install</h2>
 				<ol class="steps">
-					<li>Download <code>ScrappWars-0.5.0.1-windows-x64.zip</code> from the <a href="https://github.com/RobertAgterhuis/Game-ScrappWars/releases/latest">newest release</a>.</li>
+					<li>Download <code>ScrappWars-0.6.0.0-windows-x64.zip</code> from the <a href="https://github.com/RobertAgterhuis/Game-ScrappWars/releases/latest">newest release</a>.</li>
 					<li>Unpack it anywhere.</li>
 					<li>Run <code>ScrappWarsUpdater.exe</code> in the unpacked folder. It checks every file, installs the game into <code>%LOCALAPPDATA%\Programs\ScrappWars</code>, adds it to the Start menu and starts it. No administrator rights needed.</li>
 				</ol>
@@ -363,7 +391,7 @@ footer a { color: var(--sand); }
 				</ol>
 				<div class="notes">
 					<h3>What is sent</h3>
-					<p>Only what the form shows: your text, the game's version, Windows version, graphics card and quality setting, where SD-7 is, the difficulty, the objective and the time of day. The last lines of the game log are optional and lose any folder paths and your Windows user name. Nothing leaves your computer until you press Submit on GitHub; the game never posts anything by itself.</p>
+					<p>Only what the form shows: your text, the game's version, Windows version, graphics card and quality setting, where SD-7 is, the difficulty, the objective and the time of day. The last lines of the game log are optional and lose any folder paths and your Windows user name. Two more boxes, both off unless you tick them, put your latest session log and a copy of your save next to the screenshot, so a bug can be replayed exactly; you decide whether to drag them in. Nothing leaves your computer until you press Submit on GitHub; the game never posts anything by itself.</p>
 					<h3>Without the game</h3>
 					<p><a href="https://github.com/RobertAgterhuis/Game-ScrappWars/issues/new?template=bug_report.md">Open a bug report on GitHub</a> and fill in the same questions. Look through the <a href="https://github.com/RobertAgterhuis/Game-ScrappWars/issues">open issues</a> first: if your bug is already there, a comment or a thumbs-up helps just as much.</p>
 					<h3>Check your version</h3>
@@ -375,6 +403,39 @@ footer a { color: var(--sand); }
 					alt="The Report a bug window over the game: title, what happened and what was expected on the left, the screenshot and the details that are sent on the right">
 				<figcaption>The bug report window, over the moment it was opened.</figcaption>
 			</figure>
+		</div>
+	</section>
+
+	<section class="next" id="next">
+		<div class="wrap">
+			<h2>What's next</h2>
+			<p class="lead">ScrappWars grows a little with every release. Here is where it stands, and where it goes from here.</p>
+			<ol class="track">
+				<li class="here">
+					<p class="when">Version 0.6</p>
+					<h3>Out now</h3>
+					<ul>
+						<li>Comfort settings: interface scale, larger subtitles, press once instead of holding, field of view, high-contrast markers and separate gamepad look controls.</li>
+						<li>A journal beside the map: the objective, open side jobs, your contract and every memory you have read.</li>
+						<li>New voices in the story, and a final climb that fights back.</li>
+						<li>Richer light at dawn and dusk, and a lighter load on every graphics setting.</li>
+					</ul>
+				</li>
+				<li>
+					<p class="when">Next</p>
+					<h3>Accessibility and polish</h3>
+					<p>More ways to play comfortably, clearer signposting in the desert, and the rough edges you report smoothed out, one fix release at a time.</p>
+				</li>
+				<li>
+					<p class="when">After that</p>
+					<h3>More of Kessra</h3>
+					<p>New places between the regions, more to find in the sand and more stories in the scrap. The desert is big, and there is room for it to fill up.</p>
+				</li>
+			</ol>
+			<div class="call">
+				<h3>Help steer it</h3>
+				<p>Every playtest shapes what comes next. If something breaks, confuses you or simply feels wrong, press <kbd>Ctrl+Alt+B</kbd> in the game and <a href="#bugs">report it</a>. New versions arrive through the game itself, so you never miss one.</p>
+			</div>
 		</div>
 	</section>
 </main>
