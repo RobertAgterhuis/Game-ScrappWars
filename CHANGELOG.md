@@ -2,6 +2,32 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 0.6.0 fix 1 (0.6.0.1, 2026-10-29)
+
+A polish update: faster start-up, menus that fit every screen, a new icon and more of Kessra's own look.
+
+### Faster start
+
+- **From about 37 to about 9 seconds** to a playable world on a fast PC (Ultra); Low starts in about 8. The world is exactly the same: what used to be worked out on every start is now prepared once.
+- **A real loading screen** with progress and tips instead of a frozen frame, and our own start-up image instead of the engine logo.
+
+### Menus
+
+- **Settings always fit:** every settings page scrolls between a fixed title and a fixed Back button, at any window size and interface scale.
+- **Esc or gamepad B** goes back one page everywhere, and closes the settings from the top page.
+- The title screen fills the whole window, without black bars.
+
+### Look
+
+- **SD-7's new paint:** sun-faded oxide red on cream, with a deeper visor over its eye. Signal orange is still at the painter.
+- **A new sand worm:** an armoured, forward-leaning head with a plated nose and side mandibles that snap shut.
+- **A new relief emblem:** a water drop in an open shield, on the escape pod and the relief wrecks.
+- **A new game icon** for the game, its window, the updater and the website.
+
+### For testers
+
+- A playtest kit (plan, tester handout in Dutch and English, observation sheet) for the coming test round.
+
 ## 0.6.0 (0.6.0.0, 2026-10-29)
 
 The first big update after release: a full director's pass over the story, the play, the look and the controls.
