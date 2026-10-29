@@ -185,6 +185,16 @@ details[open] summary::before { content: "\2212"; }
 code { font-family: Consolas, "Courier New", monospace; font-size: 0.9em; background: rgba(43, 34, 28, 0.08); padding: 1px 5px; border-radius: 2px; overflow-wrap: anywhere; }
 @media (max-width: 860px) { .install .wrap { grid-template-columns: 1fr; } }
 
+/* Bugs: the form as it appears in the game, the steps beside it. */
+.bugs { background: var(--sand-deep); }
+.bugs .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
+.bugs h2 { margin-bottom: 18px; }
+.bugs figure { margin: 0; position: sticky; top: 84px; }
+.bugs img { width: 100%; border-radius: 2px; box-shadow: 0 20px 40px -24px rgba(43, 34, 28, 0.6); }
+.bugs figcaption { font-size: 0.9rem; color: var(--ink-soft); margin-top: 10px; }
+kbd { font-family: var(--display); font-weight: 700; font-size: 0.95em; background: var(--ink); color: var(--amber); padding: 1px 7px; border-radius: 3px; white-space: nowrap; }
+@media (max-width: 860px) { .bugs .wrap { grid-template-columns: 1fr; } .bugs figure { position: static; } }
+
 footer { background: var(--ink); color: #cbbca3; padding: 34px var(--gutter); font-size: 0.95rem; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px 30px; }
 footer nav { display: flex; flex-wrap: wrap; gap: 8px 24px; }
@@ -201,6 +211,7 @@ footer a { color: var(--sand); }
 		<a href="#journey">The journey</a>
 		<a href="#story">Story</a>
 		<a href="#install">Install</a>
+		<a href="#bugs">Bugs</a>
 		<a class="go" href="https://github.com/RobertAgterhuis/Game-ScrappWars/releases/latest">Download</a>
 	</nav>
 </header>
@@ -338,6 +349,34 @@ footer a { color: var(--sand); }
 			</div>
 		</div>
 	</section>
+
+	<section class="bugs" id="bugs">
+		<div class="wrap">
+			<div>
+				<h2>Found a bug?</h2>
+				<p>Report it from inside the game, right where it happens. Since version 0.5.0 fix 1, <kbd>Ctrl+Alt+B</kbd> works everywhere: in the menu, while playing and in photo mode.</p>
+				<ol class="steps">
+					<li>Press <kbd>Ctrl+Alt+B</kbd>. The game saves a screenshot of that moment and pauses.</li>
+					<li>Give the bug a short title, say what happened and, if you like, what you expected.</li>
+					<li>Press <b>Open on GitHub</b>. Your browser opens a new bug report, already filled in, and the folder with the screenshot opens beside it.</li>
+					<li>Drag the screenshot into the report and press <b>Submit new issue</b>. This needs a free GitHub account.</li>
+				</ol>
+				<div class="notes">
+					<h3>What is sent</h3>
+					<p>Only what the form shows: your text, the game's version, Windows version, graphics card and quality setting, where SD-7 is, the difficulty, the objective and the time of day. The last lines of the game log are optional and lose any folder paths and your Windows user name. Nothing leaves your computer until you press Submit on GitHub; the game never posts anything by itself.</p>
+					<h3>Without the game</h3>
+					<p><a href="https://github.com/RobertAgterhuis/Game-ScrappWars/issues/new?template=bug_report.md">Open a bug report on GitHub</a> and fill in the same questions. Look through the <a href="https://github.com/RobertAgterhuis/Game-ScrappWars/issues">open issues</a> first: if your bug is already there, a comment or a thumbs-up helps just as much.</p>
+					<h3>Check your version</h3>
+					<p>On an older version? Update first (Settings, Updates): the bug may already be fixed. The <a href="https://github.com/RobertAgterhuis/Game-ScrappWars/blob/main/CHANGELOG.md">release notes</a> list every fix.</p>
+				</div>
+			</div>
+			<figure>
+				<img src="media/bug-report.jpg" width="980" height="680" loading="lazy"
+					alt="The Report a bug window over the game: title, what happened and what was expected on the left, the screenshot and the details that are sent on the right">
+				<figcaption>The bug report window, over the moment it was opened.</figcaption>
+			</figure>
+		</div>
+	</section>
 </main>
 
 <footer>
@@ -347,7 +386,7 @@ footer a { color: var(--sand); }
 			<a href="https://github.com/RobertAgterhuis/Game-ScrappWars/blob/main/LICENSE.md">Licence</a>
 			<a href="https://github.com/RobertAgterhuis/Game-ScrappWars/blob/main/CHANGELOG.md">Release notes</a>
 			<a href="https://github.com/RobertAgterhuis/Game-ScrappWars/releases">All releases</a>
-			<a href="https://github.com/RobertAgterhuis/Game-ScrappWars/issues">Report a problem</a>
+			<a href="#bugs">Report a bug</a>
 		</nav>
 	</div>
 </footer>
