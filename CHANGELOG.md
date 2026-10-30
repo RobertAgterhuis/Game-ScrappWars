@@ -2,6 +2,36 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 0.10.0 (0.10.0.0, 2026-10-30)
+
+The "Scrap Marks" update: SD-7 now collects stamped steel tags for what it does on Kessra, earns medals for full sets and climbs a service rank. Everything you earn is for show; SD-7 plays exactly as before.
+
+### Scrap Marks
+
+- **60 marks** in eight sets: Story, Exploration, Salvage & rescue, Survival, Craft, Trade, Photography and a few hidden ones. Each is a small steel tag with a punched symbol and a serial number.
+- **Earned in play only.** A mark counts the moment it happens. Loading a save never hands out marks, and every mark outside the story can still be earned in an existing save; story marks come with a new game.
+- **Shared by your slots.** Marks are kept in your profile, so all three save slots add to the same record. The Load view shows each slot's marks.
+- **Eight medals** on canvas ribbons, one for every complete set, and a **service rank** from Class D up to "Last Scrapper".
+- **A stamp notice** comes in at the top right and waits for storms, cinematics, photo mode and WREN. Settings > Scrap Mark notices: stamp and sound, silent, or off.
+- **The journal has a MARKS page,** and the main menu has a **Service record**. Switch the journal's pages with left and right or the shoulder buttons.
+
+### Rewards, all cosmetic
+
+- Two new paint jobs: Wren hull grey and Bare metal.
+- A survey grid and your rank stencilled on SD-7's back plate (you can switch the stencil off).
+- The Storm print photo look and the Survey plate photo frame.
+- Seedling Mote, with a little planter on its back.
+- Dunewell's people start treating you as a regular, and WREN has a commendation for you.
+- **The trophy wall at home is now a service board:** medals on their ribbons, every tag on its own peg with an outline for the ones still to find, your rank on the header and a lamp at night. A chain of tags hangs in the escape pod too.
+
+### New things to do in finished places
+
+- Listen to a repaired beacon, pick over a downed scrap hunter, look through an empty locker, check the home systems or wipe a solar mirror. Gauge in Dunewell tells old stories once every memory is found.
+
+### Fixes
+
+- **No more freeze after loading or swapping a part.** Since 0.9 the game could stall for a second, and on some machines freeze for good, right after a game loaded, after a part swap or when scavengers appeared. The shadow work behind it now runs without blocking the rest of the game.
+
 ## 0.9.0 (0.9.0.0, 2026-10-30)
 
 The "clear the backlog" update: you choose how you play and where your game is kept, SD-7 walks and looks better than ever, and the big wrecks, the light and the frame rate all got a pass. Everything plays as before.
