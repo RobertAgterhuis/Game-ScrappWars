@@ -2,6 +2,14 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 0.8.0 fix 2 (0.8.0.2, 2026-10-30)
+
+A fix for the end of the intro film.
+
+- **The Patient Wren's crash now lands properly:** she glides in, bellies into the sand, ploughs a long trench and skids to rest, throwing up a wall of dust, flying plates and fire, with a shock front racing across the dunes.
+- The music hits on the moment of impact.
+- Screen shake in the intro follows your screen-shake setting.
+
 ## 0.8.0 fix 1 (0.8.0.1, 2026-10-30)
 
 The intro film and the website catch up with the new look of Kessra.
