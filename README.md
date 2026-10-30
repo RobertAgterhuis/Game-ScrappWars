@@ -36,8 +36,11 @@ bug fix of it, `1.0.1.0` a beta.
 
 ## Saves
 
-Saves, settings and photos live in `%APPDATA%\Godot\app_userdata\ScrappWars`,
-not in the install folder; updates and uninstalling never touch them.
+Saves, settings and photos live in `%APPDATA%\Godot\app_userdata\ScrappWars` by
+default, not in the install folder. To keep them somewhere else, open
+*Settings > Data folder...* and choose a folder: the game copies everything
+there, checks the copy and only then switches (the old copy stays until you
+remove it). Updates and uninstalling never touch your data folder.
 
 ## Report a bug
 

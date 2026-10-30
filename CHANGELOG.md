@@ -2,6 +2,53 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 0.9.0 (0.9.0.0, 2026-10-30)
+
+The "clear the backlog" update: you choose how you play and where your game is kept, SD-7 walks and looks better than ever, and the big wrecks, the light and the frame rate all got a pass. Everything plays as before.
+
+### Your game, your way
+
+- **Choose your controller:** Settings > Controls now lets you pick Automatic, Keyboard & mouse or Game controller. Automatic follows whatever you touched last; an explicit choice plays with that device only, and the other one can never lock you out.
+- **Rebind almost every action:** any action can be moved to another key, mouse button, controller button, trigger or stick direction; only the pause menu and the right-stick camera stay where they are. If the input is already taken, the game offers to swap the two. Each device can be reset on its own.
+- **A live diagram** of the keyboard and mouse or the controller shows what every key and button does, and lights up as you press it; its labels never cross each other.
+- **Every prompt follows your device:** hints, the map, photo mode and WREN's subtitles name the key or button you actually use.
+- **Choose where your game is kept:** Settings > Data folder moves your saves, settings, photos and reports to a folder of your own. Every file is checked after the copy, nothing is ever overwritten, and if that folder goes missing (an unplugged drive), the game says so, saves in the default folder for that session and goes back to your folder once it is there again.
+- **A fitting first graphics setting:** on its first start the game looks at your graphics card and picks a tier that runs well. A setting you chose yourself is never changed.
+
+### SD-7
+
+- **Real knees:** the spider legs fold at the knee and keep their feet planted on steps and slopes, also when limping.
+- **The iris works:** SD-7's big lens opens in the dark and stops down in bright sunlight, step by step.
+- **Paint you can see:** every paint job now reads on SD-7's body through the dust and the wear, not only on its head and trim.
+- **The intro shows SD-7:** after the crash, a small scrapper wakes in an escape pod in the binary sunset, rolls out, focuses its lens and lights its lamp. The crash dust glows against the low sun, and the trailer now ends on SD-7.
+- A new start-up screen with SD-7 on a sunset horizon.
+
+### Kessra
+
+- **The Patient Wren** is split wide open: a jagged rift with torn plating, a broken roof line and wreckage spilled toward the way in.
+- **The Dawnbreaker** carries a fire-control house with a lattice mast, a conning house at the bow and armoured galleries with gun tubs along its flanks.
+- **Light shafts** fall through the Rib Field's ribs, the Wren's hold, the flagship's frames, the salt-bound skeletons and the canyon gorge.
+- **Canyon City's** homes are set back into the cliff instead of standing out as shelves from above.
+- The Rib Field's reveal now starts once the rock no longer hides the ribs.
+- **Creatures:** the sand worm has a bigger head that sheds sand as it rises, a boiling dust ring and a cheaper far view; the scrap hunter's head reads better from a distance.
+
+### Light and look
+
+- On the highest setting the big wrecks' second shadow softens with distance; SD-7's double shadow stays crisp.
+- The moon fades out beside the sun instead of hanging there by day.
+- The title screen's containers show their markings again.
+- Warmer shade tarps at dusk, heat-tinted burns on dark paint, damp fresh mud on Dunewell's houses, and the stand-in transmitter screen is a proper tube.
+
+### Performance
+
+- Far fewer shadow draws everywhere: Dunewell at dusk drops from about 7,800 to 2,300 draw calls on the highest setting, and home at sunset from about 4,600 shadow draws to about 500.
+- Hollowmere's jungle is cheaper on the highest setting.
+
+### Fixes
+
+- With the game controller chosen, the mouse no longer turns the camera.
+- The breeze's sand streaks no longer turn into bright specks under a low sun.
+
 ## 0.8.0 fix 2 (0.8.0.2, 2026-10-30)
 
 A fix for the end of the intro film.
