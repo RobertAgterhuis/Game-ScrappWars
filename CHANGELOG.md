@@ -2,6 +2,46 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 0.8.0 (0.8.0.0, 2026-10-30)
+
+The "Twin Sunset" update: every machine, wreck, creature and corner of Kessra has been rebuilt to look harder used, patched together and lived in, and the desert now ends every day with two suns going down together. Everything plays exactly as before.
+
+### Two suns
+
+- **Binary sunsets:** Kessra's small, pale-blue second sun now travels beside the big one, a little lower, and sets with it. At dawn and dusk SD-7 throws two overlapping shadows (on High and Ultra; on Ultra the big wrecks and rocks do too).
+- **Vashka** hangs larger in the sky in soft cream and orange bands, and glows faintly at night.
+- **Salt and heat:** salt pans crust the low ground of the open desert, the far horizon boils with heat shimmer and mirage, and a sandstorm tears the clouds apart into an ochre haze.
+
+### SD-7 and its parts
+
+- **A new face:** SD-7 looks out through one big round camera lens that focuses in little motor steps, hunts when you scan and goes still when it runs flat.
+- **A jury-rigged body:** dented plates, hand-laid welds, bare battery leads, a rusty dish on its back. When a part is close to breaking, SD-7 looks it: a cover plate hangs off its last bolt, the lens cracks, the worst part smokes and the leads spark. A repair cleans it up again.
+- **Parts that work:** every upgrade is a worn machine you can watch at work. Magnet pads spark, spider legs hiss, the thruster coughs dirty flame, the torch tip glows and spits, the grapple's claw flies out on a cable and winches back, the scanner's lenses click, blaster bolts fly lit across the sand and the shield ripples amber where it is hit.
+- **Feet on the ground:** SD-7 tilts with the slope, its wheels roll true and its feet plant, a broken leg limps visibly, and it leaves tracks in the sand that the wind fills in.
+- **Wear that stays put:** chips, rust and burns now stay on moving machines instead of sliding over them.
+
+### The people and machines of Kessra
+
+- **WREN's radio** squelches open and shut, crackles and distorts on a weak signal, and her panel is a green phosphor scope.
+- **Mote** is a dented little box with one amber eye on a sputtering lift field.
+- **Dunewell's mechanics** wear heavy robes, masks, goggles and greasy tool belts. The stranded scrappers lie buried to their shoulders in the sand.
+- **Scavengers** click their pincers and rear back hissing from your headlamp; **scrap hunters** are lean, dog-like hunters whose twin sensors follow you; the sand worm ploughs with a heavy, plated wedge of a snout.
+- **Rival fleets:** the Directorate's wrecks are hard-edged slate and navy with brass trim and bare bellies; the Sable fleet's are salvage, mismatched plates bolted on and canvas strapped down for roofs.
+
+### Places
+
+- **Home:** the escape pod's hatch is now a ramp, and you can drive inside its cramped cabin with hammocks, terminals and a workbench full of loose tools.
+- **Dunewell** has grown into a dense town of mud domes, every house with a turning wind-catcher, and the stalls hang with coarse burlap.
+- **Canyon City** climbs its deep orange walls: homes and rooms carved into the rock, clanking chain lifts and an iron foundry smoking on the summit.
+- **The Dawnbreaker** has a collapsed corridor in its torn flank, wiring dangling in the wind and sand streaming through; the **Patient Wren** lies broken in half with her machinery spilled into the dunes; the **Seedbearer** breathes thick white mist over Hollowmere's vine-choked mangroves.
+- **The Glass Plain's** obsidian spires arc lightning across the plain in a storm; tall salt pillars weave through ship skeletons in the **Salt Graveyard**; the **Crater Sea** swirls down into a sinking funnel; **the Scorch** is littered with fallen walkers and melted beam holes.
+- **The Underground Caves and the Long Night** are truly dark now: crystals, red alarm lights, flickering terminals and your headlamp are all you see by.
+- **Memory cores** are heavy, scratched metal cylinders with one button and a small speaker. The open desert has jagged arches, the bleached bones of old grazers and sand trailing off the dune crests.
+
+### Fixes
+
+- The shield's flash no longer stays lit after the shield drops, and the salt pans no longer whiten settlements and roads.
+
 ## 0.7.0 (0.7.0.0, 2026-10-29)
 
 The "Used Universe" update: Kessra and everything on it looks older, harder used and more lived in. Everything plays exactly as before.
