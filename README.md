@@ -52,6 +52,12 @@ You send it there with your GitHub account, after dragging in the screenshot
 from the folder that opens. Without the game:
 [open an issue](https://github.com/RobertAgterhuis/Game-ScrappWars/issues/new?template=bug_report.md).
 
+## Ideas, questions and feedback
+
+Ideas, questions, playtest impressions and photo-mode pictures go to the
+[discussions](https://github.com/RobertAgterhuis/Game-ScrappWars/discussions);
+bugs go to the issues (above).
+
 ## Uninstall
 
 Run `%LOCALAPPDATA%\Programs\ScrappWars\ScrappWarsUpdater.exe --uninstall`.

@@ -4,40 +4,45 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ScrappWars</title>
-<meta name="description" content="A small scrapper in a desert of giant wrecks. A free game for Windows.">
+<meta name="description" content="A small scrapper in a desert of giant wrecks. A free single-player game for Windows: download it, play it, and help build it.">
 <meta property="og:title" content="ScrappWars">
-<meta property="og:description" content="A small scrapper. A big desert. A war that never got its last message.">
+<meta property="og:description" content="A small scrapper. A big desert. A war that never got its last message. Free for Windows.">
 <meta property="og:image" content="https://robertagterhuis.github.io/Game-ScrappWars/media/poster.jpg">
 <meta property="og:type" content="website">
+<meta name="theme-color" content="#000000">
 <link rel="icon" href="media/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="media/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="icon" href="media/icon-512.png" type="image/png" sizes="512x512">
 <link rel="apple-touch-icon" href="media/apple-touch-icon.png" sizes="180x180">
+<link rel="preload" href="fonts/Rajdhani-Bold.ttf" as="font" type="font/ttf" crossorigin>
 <style>
 @font-face { font-family: "Rajdhani"; src: url("fonts/Rajdhani-Bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
 @font-face { font-family: "Rajdhani"; src: url("fonts/Rajdhani-SemiBold.ttf") format("truetype"); font-weight: 600; font-display: swap; }
 @font-face { font-family: "Barlow Semi Condensed"; src: url("fonts/BarlowSemiCondensed-Medium.ttf") format("truetype"); font-weight: 500; font-display: swap; }
 @font-face { font-family: "Barlow Semi Condensed"; src: url("fonts/BarlowSemiCondensed-SemiBold.ttf") format("truetype"); font-weight: 600; font-display: swap; }
 
+/* Kessra's palette: bleached sand, scorched ink, a signal lamp's amber, a night sky and WREN's phosphor. */
 :root {
 	--sand: #e7d5b8;
 	--sand-deep: #d9c09a;
 	--dune: #a8794c;
 	--ink: #2b221c;
-	--ink-soft: #5a4a3c;
+	--ink-soft: #54453a;
 	--amber: #ffb45a;
 	--amber-deep: #b8651d;
+	--rust: #8a4410;
 	--night: #1c2232;
 	--night-text: #d6dbe6;
 	--signal: #8ce6ff;
 	--film: #000;
+	--film-text: #cbbca3;
 	--display: "Rajdhani", "Arial Narrow", sans-serif;
 	--body: "Barlow Semi Condensed", "Arial Narrow", sans-serif;
 	--gutter: clamp(16px, 4vw, 56px);
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 64px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body {
 	margin: 0;
@@ -47,14 +52,20 @@ body {
 	font-weight: 500;
 	font-size: clamp(17px, 1.05rem + 0.2vw, 19px);
 	line-height: 1.55;
+	overflow-x: hidden;
 }
 img, video { display: block; max-width: 100%; height: auto; }
-a { color: inherit; }
+a { color: inherit; text-underline-offset: 0.16em; }
 :focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+.sand :focus-visible, .play :focus-visible { outline-color: var(--rust); }
 h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.05; margin: 0; }
-h2 { font-size: clamp(2rem, 1.4rem + 2.2vw, 3.1rem); letter-spacing: 0.02em; }
-h3 { font-size: 1.45rem; font-weight: 600; }
+h2 { font-size: clamp(2rem, 1.4rem + 2.2vw, 3.1rem); letter-spacing: 0.02em; margin-bottom: 18px; }
+h3 { font-size: 1.4rem; font-weight: 600; }
 p { margin: 0 0 1em; max-width: 64ch; }
+ul, ol { padding-left: 1.2em; }
+code { font-family: Consolas, "Courier New", monospace; font-size: 0.88em; background: rgba(43, 34, 28, 0.08); padding: 1px 5px; border-radius: 2px; overflow-wrap: anywhere; }
+kbd { font-family: var(--display); font-weight: 700; font-size: 0.95em; background: var(--ink); color: var(--amber); padding: 1px 7px; border-radius: 3px; white-space: nowrap; }
+.lead { font-size: 1.12em; max-width: 58ch; margin-bottom: 36px; }
 
 .skip { position: absolute; left: -999px; top: 0; background: var(--amber); color: var(--ink); padding: 8px 12px; z-index: 10; }
 .skip:focus { left: 8px; top: 8px; }
@@ -67,29 +78,33 @@ p { margin: 0 0 1em; max-width: 64ch; }
 	padding: 10px var(--gutter);
 }
 .wordmark { font-family: var(--display); font-weight: 700; font-size: 1.15rem; letter-spacing: 0.32em; text-decoration: none; color: var(--amber); }
-.bar nav { display: flex; gap: clamp(10px, 2vw, 26px); flex-wrap: wrap; justify-content: flex-end; }
-.bar nav a { text-decoration: none; font-weight: 600; font-size: 0.95rem; opacity: 0.85; }
-.bar nav a:hover { opacity: 1; color: var(--amber); }
-@media (max-width: 720px) { .bar nav a:not(.go) { display: none; } }
+.bar nav { display: flex; gap: clamp(10px, 1.8vw, 24px); flex-wrap: wrap; justify-content: flex-end; align-items: center; }
+.bar nav a { text-decoration: none; font-weight: 600; font-size: 0.95rem; color: #e9dcc6; }
+.bar nav a:hover { color: var(--amber); }
+.bar .go { background: var(--amber); color: var(--ink); padding: 4px 12px 3px; border-radius: 3px; }
+.bar .go:hover { background: #ffc477; color: var(--ink); }
+@media (max-width: 900px) { .bar nav a:not(.go) { display: none; } }
 
 .button {
 	display: inline-block; text-decoration: none;
-	font-family: var(--display); font-weight: 700; font-size: 1.15rem; letter-spacing: 0.06em;
+	font-family: var(--display); font-weight: 700; font-size: 1.2rem; letter-spacing: 0.06em;
 	background: var(--amber); color: var(--ink);
-	padding: 12px 26px 10px; border-radius: 3px;
+	padding: 13px 28px 11px; border-radius: 3px;
 	box-shadow: inset 0 -3px 0 var(--amber-deep);
 }
 .button:hover { background: #ffc477; }
-.bar .go { background: var(--amber); color: var(--ink); padding: 4px 12px 3px; border-radius: 3px; opacity: 1; }
+.button.quiet { background: transparent; color: var(--sand); box-shadow: inset 0 0 0 2px rgba(231, 213, 184, 0.55); }
+.button.quiet:hover { box-shadow: inset 0 0 0 2px var(--amber); color: var(--amber); }
 
 /* Hero: the trailer in an anamorphic frame, the title under it like a title card. */
-.hero { background: var(--film); color: var(--sand); padding-bottom: clamp(40px, 7vw, 90px); }
+.hero { background: var(--film); color: var(--sand); padding-bottom: clamp(44px, 7vw, 96px); }
 .frame { position: relative; width: 100%; aspect-ratio: 2.39 / 1; overflow: hidden; background: #000; }
 .frame video { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 720px) { .frame { aspect-ratio: 16 / 9; } }
 .sound {
 	position: absolute; right: 16px; bottom: 14px;
 	font: 600 0.9rem var(--body); color: var(--sand);
-	background: rgba(0, 0, 0, 0.55); border: 1px solid rgba(231, 213, 184, 0.45); border-radius: 3px;
+	background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(231, 213, 184, 0.5); border-radius: 3px;
 	padding: 6px 12px; cursor: pointer;
 }
 .sound:hover { border-color: var(--amber); color: var(--amber); }
@@ -99,45 +114,49 @@ p { margin: 0 0 1em; max-width: 64ch; }
 	letter-spacing: 0.34em; margin-right: -0.34em;
 	color: var(--amber);
 }
-@media (max-width: 560px) { .title h1 { font-size: 2.5rem; letter-spacing: 0.16em; margin-right: -0.16em; } }
-.tagline { font-size: clamp(1.1rem, 0.9rem + 0.8vw, 1.5rem); max-width: 40ch; margin: 0; color: var(--sand); }
-.meta { font-size: 0.95rem; color: #b9a98f; margin: 0; }
+@media (max-width: 560px) { .title h1 { font-size: 2.4rem; letter-spacing: 0.16em; margin-right: -0.16em; } }
+.tagline { font-size: clamp(1.15rem, 0.9rem + 0.8vw, 1.55rem); max-width: 40ch; margin: 0; color: var(--sand); }
+.actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 6px; }
+.meta { font-size: 0.98rem; color: var(--film-text); margin: 0; max-width: 60ch; }
+.meta a { color: var(--sand); }
 
-section { padding: clamp(56px, 8vw, 120px) var(--gutter); }
+section { padding: clamp(60px, 8vw, 120px) var(--gutter); }
 .wrap { max-width: 1180px; margin: 0 auto; }
+.band { background: var(--sand-deep); }
 
 /* Kessra: what the game is. */
-.about .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
-.about h2 { margin-bottom: 22px; }
+.about .split { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
 .about figure { margin: 0; }
 .about img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 2px; box-shadow: 0 20px 40px -24px rgba(43, 34, 28, 0.6); }
-.about figcaption { font-size: 0.9rem; color: var(--ink-soft); margin-top: 10px; }
-.facts { list-style: none; padding: 0; margin: 26px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 28px; }
+figcaption { font-size: 0.92rem; color: var(--ink-soft); margin-top: 10px; }
+.facts { list-style: none; padding: 0; margin: 26px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 28px; }
 .facts li { border-top: 2px solid var(--dune); padding-top: 8px; }
 .facts strong { display: block; font-family: var(--display); font-size: 1.2rem; }
-@media (max-width: 860px) { .about .wrap { grid-template-columns: 1fr; } }
+.cast { margin-top: clamp(48px, 6vw, 80px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 40px; }
+.cast h3 { margin-bottom: 6px; }
+.cast p { font-size: 0.98rem; }
+@media (max-width: 860px) { .about .split { grid-template-columns: 1fr; } .cast { grid-template-columns: 1fr; } }
 @media (max-width: 480px) { .facts { grid-template-columns: 1fr; } }
 
-/* Screenshots as a strip of film frames. */
-.strip { background: var(--film); color: var(--sand); padding-left: 0; padding-right: 0; }
-.strip h2 { padding: 0 var(--gutter); margin-bottom: 26px; }
-.reel {
-	display: grid; grid-auto-flow: column; grid-auto-columns: min(78vw, 980px); gap: 18px;
-	overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 var(--gutter) 18px;
-	scrollbar-color: var(--dune) transparent;
-}
-.reel figure { margin: 0; scroll-snap-align: center; }
-.reel img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 2px; }
-.reel figcaption { margin-top: 10px; font-size: 0.98rem; color: #cbbca3; }
-.reel figcaption b { font-family: var(--display); font-size: 1.15rem; color: var(--sand); margin-right: 6px; }
-.hint { padding: 6px var(--gutter) 0; margin: 0; font-size: 0.9rem; color: #8f826d; }
+/* Screenshots: one wide frame, then the rest as a contact sheet. Every picture opens full size. */
+.shots { background: var(--film); color: var(--sand); }
+.shots .lead { color: var(--film-text); }
+.sheet { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px 18px; }
+.sheet li:first-child { grid-column: 1 / -1; }
+.sheet figure { margin: 0; }
+.sheet a { display: block; text-decoration: none; }
+.sheet img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 2px; }
+.sheet li:first-child img { aspect-ratio: 2.39 / 1; }
+.sheet a:hover img { outline: 2px solid var(--amber); outline-offset: 2px; }
+.sheet figcaption { color: var(--film-text); font-size: 0.95rem; }
+.sheet figcaption b { font-family: var(--display); font-size: 1.12rem; color: var(--sand); margin-right: 6px; }
+@media (max-width: 900px) { .sheet { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .sheet { grid-template-columns: 1fr; } }
 
 /* The journey: the main line is a route, stop after stop. */
-.journey h2 { margin-bottom: 14px; }
-.journey .lead { margin-bottom: 40px; }
 .route { list-style: none; margin: 0; padding: 0; counter-reset: stop; position: relative; }
 .route::before { content: ""; position: absolute; left: 21px; top: 10px; bottom: 10px; border-left: 3px dashed var(--dune); }
-.route li { counter-increment: stop; position: relative; padding: 0 0 34px 72px; }
+.route li { counter-increment: stop; position: relative; padding: 0 0 32px 72px; }
 .route li::before {
 	content: counter(stop);
 	position: absolute; left: 0; top: -2px; width: 46px; height: 46px; border-radius: 50%;
@@ -152,78 +171,128 @@ section { padding: clamp(56px, 8vw, 120px) var(--gutter); }
 .aside { margin-top: 30px; padding-top: 24px; border-top: 2px solid var(--dune); }
 .aside h3 { margin-bottom: 10px; }
 
-/* How it plays. */
-.play { background: var(--sand-deep); }
-.play h2 { margin-bottom: 30px; }
-.systems { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34px 40px; }
+/* Parts: the loadout, grouped by the socket each part fits. */
+.slots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px 40px; margin: 0; }
+.slots > div { border-top: 3px solid var(--ink); padding-top: 10px; }
+.slots dt { font-family: var(--display); font-weight: 700; font-size: 1.25rem; }
+.slots dd { margin: 0 0 4px; }
+.slots dd + dt { margin-top: 0; }
+.slots ul { list-style: none; padding: 0; margin: 6px 0 0; }
+.slots li { margin-bottom: 8px; font-size: 0.98rem; }
+.slots li b { font-family: var(--display); font-size: 1.1rem; }
+@media (max-width: 900px) { .slots { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .slots { grid-template-columns: 1fr; } }
+
+.systems { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34px 40px; margin-top: clamp(48px, 6vw, 80px); }
 .systems h3 { margin-bottom: 8px; }
 .systems p { font-size: 0.98rem; }
 @media (max-width: 900px) { .systems { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .systems { grid-template-columns: 1fr; } }
 
+/* Scrap Marks: the service record beside what it counts. */
+.marks .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
+.marks figure { margin: 0; }
+.marks img { width: 100%; border-radius: 2px; box-shadow: 0 20px 40px -24px rgba(43, 34, 28, 0.6); }
+.marks ul { margin: 0 0 1em; }
+.marks li { margin-bottom: 6px; }
+@media (max-width: 860px) { .marks .split { grid-template-columns: 1fr; } }
+
 /* The story: night falls. */
-.story { background: linear-gradient(var(--sand-deep), var(--night) 200px); color: var(--night-text); padding-top: clamp(150px, 14vw, 220px); }
-.story h2 { color: #fff; margin-bottom: 26px; }
+.story { background: linear-gradient(var(--sand), var(--night) 200px); color: var(--night-text); padding-top: clamp(150px, 14vw, 220px); }
+.story h2 { color: #fff; }
 .story .wrap { max-width: 760px; }
 .story p { color: var(--night-text); }
-.voice { font-family: var(--display); font-weight: 600; font-size: 1.35rem; color: var(--amber); margin: 34px 0; max-width: 46ch; }
-details { margin-top: 44px; border: 1px solid rgba(140, 230, 255, 0.35); border-radius: 3px; background: rgba(0, 0, 0, 0.2); }
-summary { cursor: pointer; padding: 16px 20px; font: 600 1.1rem var(--display); color: var(--signal); list-style: none; }
+.voice { font-family: var(--display); font-weight: 600; font-size: 1.4rem; color: var(--amber); margin: 34px 0; max-width: 46ch; }
+.story details { margin-top: 44px; border: 1px solid rgba(140, 230, 255, 0.35); border-radius: 3px; background: rgba(0, 0, 0, 0.2); }
+.story summary { color: var(--signal); }
+.spoiler { padding: 0 20px 18px; }
+.spoiler .signal { font-size: 2.2rem; letter-spacing: 0.18em; color: var(--signal); margin: 18px 0; }
+.after { margin-top: 32px; }
+.after h3 { color: #fff; margin-bottom: 10px; }
+summary { cursor: pointer; padding: 16px 20px; font: 600 1.15rem var(--display); list-style: none; }
 summary::-webkit-details-marker { display: none; }
 summary::before { content: "+"; display: inline-block; width: 1.3em; }
-details[open] summary::before { content: "\2212"; }
-.spoiler { padding: 0 20px 18px; }
-.spoiler .signal { font-size: 2.2rem; letter-spacing: 0.18em; color: var(--signal); margin: 18px 0 18px; }
-.after { margin-top: 32px; }
-.after h3 { color: #fff; margin-bottom: 10px; font-size: 1.45rem; }
+details[open] > summary::before { content: "\2212"; }
 
-/* Install. */
-.install h2 { margin-bottom: 26px; }
-.install .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); }
-.steps { margin: 0 0 24px; padding-left: 1.4em; }
-.steps li { margin-bottom: 10px; padding-left: 6px; }
-.steps li::marker { font: 700 1.1rem var(--display); color: var(--amber-deep); }
-.notes h3 { margin: 0 0 6px; font-size: 1.2rem; }
-.notes p { font-size: 0.98rem; }
-code { font-family: Consolas, "Courier New", monospace; font-size: 0.9em; background: rgba(43, 34, 28, 0.08); padding: 1px 5px; border-radius: 2px; overflow-wrap: anywhere; }
-@media (max-width: 860px) { .install .wrap { grid-template-columns: 1fr; } }
-
-/* Bugs: the form as it appears in the game, the steps beside it. */
-.bugs { background: var(--sand-deep); }
-.bugs .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
-.bugs h2 { margin-bottom: 18px; }
-.bugs figure { margin: 0; position: sticky; top: 84px; }
-.bugs img { width: 100%; border-radius: 2px; box-shadow: 0 20px 40px -24px rgba(43, 34, 28, 0.6); }
-.bugs figcaption { font-size: 0.9rem; color: var(--ink-soft); margin-top: 10px; }
-kbd { font-family: var(--display); font-weight: 700; font-size: 0.95em; background: var(--ink); color: var(--amber); padding: 1px 7px; border-radius: 3px; white-space: nowrap; }
-@media (max-width: 860px) { .bugs .wrap { grid-template-columns: 1fr; } .bugs figure { position: static; } }
-
-/* What's next: the road ahead, a dashed track from the version you have to what follows. */
-.next h2 { margin-bottom: 14px; }
-.next .lead { margin-bottom: 40px; }
-.track { --step: clamp(24px, 3vw, 44px); list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px var(--step); }
-.track > li { position: relative; padding-top: 66px; }
-/* The dashed road runs from each stop to the next one. */
-.track > li:not(:last-child)::after { content: ""; position: absolute; left: 46px; right: calc(-1 * var(--step)); top: 21px; border-top: 3px dashed var(--dune); }
+/* Where it stands: one route from the first release to the next one. Past stops are filled,
+   the version out now is the amber lamp, what comes next is still an open ring. */
+.roadmap { background: var(--night); color: var(--night-text); }
+.roadmap h2 { color: #fff; }
+.roadmap .lead { color: var(--night-text); }
+.track { list-style: none; margin: 0; padding: 0; position: relative; max-width: 860px; }
+.track > li { position: relative; padding: 0 0 30px 76px; }
 .track > li::before {
-	content: ""; position: absolute; left: 0; top: 0; width: 46px; height: 46px; border-radius: 50%;
-	background: var(--sand); border: 3px solid var(--ink);
+	content: ""; position: absolute; left: 9px; top: 4px; width: 26px; height: 26px; border-radius: 50%;
+	background: #6f7a90; border: 3px solid var(--night);
+	box-shadow: 0 0 0 2px #6f7a90;
 }
-.track > li.here::before { background: var(--amber); }
-.track .when { font: 700 0.95rem var(--display); letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber-deep); margin: 0 0 4px; }
-.track h3 { margin-bottom: 8px; }
-.track p { font-size: 0.98rem; }
-.track ul { margin: 0; padding-left: 1.1em; font-size: 0.98rem; }
-.track ul li { margin-bottom: 4px; }
-.call { margin-top: 40px; padding-top: 24px; border-top: 2px solid var(--dune); }
-.call h3 { margin-bottom: 10px; }
-@media (max-width: 860px) {
-	.track { grid-template-columns: 1fr; gap: 0; }
-	.track > li { padding: 0 0 34px 72px; }
-	.track > li:not(:last-child)::after { left: 21px; right: auto; top: 46px; bottom: 0; border-top: 0; border-left: 3px dashed var(--dune); }
-}
+.track > li:not(:last-child)::after { content: ""; position: absolute; left: 21px; top: 34px; bottom: 0; border-left: 3px solid #6f7a90; }
+.track > li.here::before { left: 1px; top: -4px; width: 42px; height: 42px; background: var(--amber); box-shadow: 0 0 0 3px var(--amber), 0 0 22px rgba(255, 180, 90, 0.55); }
+.track > li.here::after { top: 42px; border-left-style: dashed; border-left-color: var(--amber); }
+.track > li.next::before { background: var(--night); box-shadow: 0 0 0 2px var(--signal); }
+.track .when { font: 600 1rem var(--display); letter-spacing: 0.04em; color: #a9b3c6; margin: 0 0 2px; }
+.track .when a { color: inherit; }
+.track .when time { margin-left: 10px; color: #8d97ab; font-weight: 500; }
+.track h3 { color: #fff; margin-bottom: 4px; font-size: 1.3rem; }
+.track p { margin: 0 0 4px; font-size: 0.98rem; }
+.track .fixes { color: #8d97ab; font-size: 0.92rem; }
+.track .here .when { color: var(--amber); }
+.track .here h3 { font-size: 1.8rem; }
+.track .next .when { color: var(--signal); }
+.track .next h3 { font-size: 1.6rem; }
+.track ul { margin: 6px 0 0; padding-left: 1.1em; font-size: 0.98rem; }
 
-footer { background: var(--ink); color: #cbbca3; padding: 34px var(--gutter); font-size: 0.95rem; }
+/* Help build it: the ways in, and what helps most right now. */
+.help .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
+.ways { display: grid; gap: 28px; }
+.ways h3 { margin-bottom: 6px; }
+.ways p { margin-bottom: 0.6em; }
+.ways .links { display: flex; flex-wrap: wrap; gap: 6px 22px; font-weight: 600; }
+.wanted { background: var(--sand); border-left: 4px solid var(--amber-deep); padding: 22px 26px 8px; border-radius: 0 3px 3px 0; }
+.wanted h3 { margin-bottom: 12px; }
+.wanted li { margin-bottom: 10px; }
+.wanted li b { font-family: var(--display); font-size: 1.1rem; }
+.bugshot { margin: 30px 0 0; }
+.bugshot img { width: 100%; border-radius: 2px; box-shadow: 0 20px 40px -24px rgba(43, 34, 28, 0.6); }
+@media (max-width: 860px) { .help .split { grid-template-columns: 1fr; } }
+
+/* Install and play. */
+.install .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); }
+.install h3 { margin: 28px 0 8px; }
+.install h3:first-child { margin-top: 0; }
+.steps { margin: 0 0 18px; padding-left: 1.4em; }
+.steps li { margin-bottom: 10px; padding-left: 6px; }
+.steps li::marker { font: 700 1.1rem var(--display); color: var(--rust); }
+.table-wrap { overflow-x: auto; margin: 0 0 10px; }
+table { border-collapse: collapse; width: 100%; font-size: 0.96rem; }
+th, td { text-align: left; vertical-align: top; padding: 8px 12px 8px 0; border-bottom: 1px solid rgba(43, 34, 28, 0.2); }
+thead th { font-family: var(--display); font-size: 1.08rem; border-bottom: 2px solid var(--ink); }
+tbody th { font-weight: 600; white-space: nowrap; }
+.small { font-size: 0.92rem; color: var(--ink-soft); }
+.controls { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 300px); gap: clamp(24px, 4vw, 48px); align-items: start; margin-top: clamp(48px, 6vw, 72px); padding-top: 32px; border-top: 2px solid var(--dune); }
+.controls figure { margin: 0; }
+.controls img { width: 100%; border-radius: 2px; }
+.actionlist { columns: 2; column-gap: 32px; padding-left: 1.1em; margin: 0 0 1em; }
+.actionlist li { break-inside: avoid; margin-bottom: 4px; }
+@media (max-width: 860px) { .install .split, .controls { grid-template-columns: 1fr; } .controls figure { max-width: 360px; } }
+@media (max-width: 480px) { .actionlist { columns: 1; } }
+
+/* FAQ. */
+.faq .wrap { max-width: 860px; }
+.faq details { border-top: 2px solid var(--dune); }
+.faq details:last-of-type { border-bottom: 2px solid var(--dune); }
+.faq summary { padding: 16px 0; color: var(--ink); }
+.faq summary::before { color: var(--rust); }
+.faq details > div { padding: 0 0 14px 1.3em; }
+
+/* Credits, licence and privacy. */
+.credits .cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px 40px; }
+.credits h3 { margin-bottom: 8px; }
+.credits p, .credits li { font-size: 0.96rem; }
+.credits ul { margin: 0; }
+@media (max-width: 860px) { .credits .cols { grid-template-columns: 1fr; } }
+
+footer { background: var(--ink); color: var(--film-text); padding: 34px var(--gutter); font-size: 0.95rem; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px 30px; }
 footer nav { display: flex; flex-wrap: wrap; gap: 8px 24px; }
 footer a { color: var(--sand); }
@@ -233,14 +302,14 @@ footer a { color: var(--sand); }
 <a class="skip" href="#kessra">Skip to the page</a>
 
 <header class="bar">
-	<a class="wordmark" href="#top">SCRAPPWARS</a>
+	<a class="wordmark" href="#top" aria-label="ScrappWars, back to the top">SCRAPPWARS</a>
 	<nav aria-label="Sections">
+		<a href="#kessra">The game</a>
 		<a href="#screenshots">Screenshots</a>
-		<a href="#journey">The journey</a>
-		<a href="#story">Story</a>
+		<a href="#next">Roadmap</a>
+		<a href="#help">Help build it</a>
 		<a href="#install">Install</a>
-		<a href="#bugs">Bugs</a>
-		<a href="#next">What's next</a>
+		<a href="#faq">FAQ</a>
 		<a class="go" href="https://github.com/RobertAgterhuis/Game-ScrappWars/releases/latest">Download</a>
 	</nav>
 </header>
@@ -248,59 +317,80 @@ footer a { color: var(--sand); }
 <main id="top">
 	<div class="hero">
 		<div class="frame">
-			<video id="trailer" src="media/trailer.mp4" poster="media/poster.jpg" autoplay muted loop playsinline preload="metadata"
+			<video id="trailer" src="media/trailer.mp4" poster="media/poster.jpg" muted loop playsinline preload="none"
 				aria-label="ScrappWars trailer, 30 seconds"></video>
 			<button class="sound" id="sound" type="button" aria-pressed="false">Sound on</button>
 		</div>
 		<div class="title">
 			<h1>SCRAPPWARS</h1>
 			<p class="tagline">A small scrapper. A big desert. A war that never got its last message.</p>
-			<a class="button" href="https://github.com/RobertAgterhuis/Game-ScrappWars/releases/latest">Download for Windows</a>
-			<p class="meta">Version 0.10.0 for Windows 10 and 11 (64-bit), 326 MB. Free.</p>
+			<div class="actions">
+				<a class="button" href="https://github.com/RobertAgterhuis/Game-ScrappWars/releases/latest">Download for Windows</a>
+				<a class="button quiet" href="#help">Help build it</a>
+			</div>
+			<p class="meta">Version 0.10.0, a 326 MB download for Windows 10 and 11 (64-bit). Free, single-player, plays offline. <a href="#requirements">Will it run on my PC?</a></p>
 		</div>
 	</div>
 
 	<section class="about" id="kessra">
 		<div class="wrap">
-			<div>
-				<h2>Knee-high on a planet of wrecks</h2>
-				<p>You are SD-7, the maintenance scrapper of a relief freighter that fell out of the sky. Kessra is a sun-bleached desert where two fleets fought for thirty years, and the wrecks they left are the size of hills.</p>
-				<p>Every part you salvage changes how you move, not just a number: magnet legs walk up a hull, a thruster carries you across a gap, spider legs climb what nothing else can. Your body is your skill tree, and the desert is the map of what it can do.</p>
-				<ul class="facts">
-					<li><strong>Parts, not stats</strong>Wheels, mag-legs, spider legs, thruster, grapple, torch, scanner, shield, EMP and more, swapped at a workbench.</li>
-					<li><strong>A living desert</strong>Day and night, heat, sandstorms, eclipses, and something armoured that ploughs through the deep sand.</li>
-					<li><strong>Story in the scrap</strong>Twenty memory cores, read aloud by the crews who left them.</li>
-					<li><strong>Your pace</strong>Easy, Medium, Hard or Ultra, switchable at any time.</li>
-				</ul>
+			<div class="split">
+				<div>
+					<h2>Knee-high on a planet of wrecks</h2>
+					<p>You are SD-7, the maintenance scrapper of a relief freighter that fell out of the sky. Kessra is a sun-bleached desert under two suns, where two fleets fought for thirty years, and the wrecks they left are the size of hills.</p>
+					<p>Every part you salvage changes how you move, not just a number: magnet legs walk up a hull, a thruster carries you across a gap, spider legs climb what nothing else can. Your body is your skill tree, and the desert is the map of what it can do.</p>
+					<ul class="facts">
+						<li><strong>Parts, not stats</strong>Thirteen parts in six sockets, swapped at a workbench or with a field kit in the desert.</li>
+						<li><strong>A living desert</strong>Day and night, noon heat, sandstorms, eclipses, and something armoured that ploughs through the deep sand.</li>
+						<li><strong>Story in the scrap</strong>Twenty-five memory logs, most of them read aloud by the crews who left them.</li>
+						<li><strong>Your pace</strong>Easy, Medium, Hard or Ultra, switchable at any time. Keyboard and mouse or a controller.</li>
+					</ul>
+				</div>
+				<figure>
+					<img src="media/sd7-960.jpg" srcset="media/sd7-960.jpg 960w, media/sd7.jpg 1920w" sizes="(max-width: 860px) 100vw, 45vw"
+						width="1920" height="1080" alt="SD-7, a small scrapper on wheels patched together from dented salvaged plates and welds, looking out through one oversized round focusing lens, a rusty dish on its shoulder, beside the escape pod and its workbench in the late sun">
+					<figcaption>SD-7, built from whatever it finds.</figcaption>
+				</figure>
 			</div>
-			<figure>
-				<img src="media/sd7-960.jpg" srcset="media/sd7-960.jpg 960w, media/sd7.jpg 1920w" sizes="(max-width: 860px) 100vw, 45vw"
-					width="1920" height="1080" alt="SD-7, a small scrapper on wheels patched together from dented salvaged plates and welds, looking out through one oversized round focusing lens, a rusty dish on its shoulder, beside the escape pod and its workbench in the late sun">
-				<figcaption>SD-7, built from whatever it finds.</figcaption>
-			</figure>
+			<div class="cast">
+				<div>
+					<h3>SD-7</h3>
+					<p>A small, rusty maintenance scrapper with one big round lens that focuses in little motor steps. It beeps how it feels: happy at a find, scared in a storm, proud after a repair. Wear shows on its body, and a repair cleans it up again.</p>
+				</div>
+				<div>
+					<h3>WREN</h3>
+					<p>The Patient Wren's ship mind, scattered across Kessra but still on the radio. She gives you every objective in her own voice, her signal starts weak and full of static, and she grows warmer as the story goes on.</p>
+				</div>
+				<div>
+					<h3>The people you meet</h3>
+					<p>The robed mechanics of Dunewell, whose talk changes as the story moves on; scrappers lost in storms that you dig out and that help you once a day; traders with contracts; and Mote, a dented little drone you can have built.</p>
+				</div>
+			</div>
 		</div>
 	</section>
 
-	<section class="strip" id="screenshots" aria-labelledby="screenshots-title">
-		<h2 id="screenshots-title">Screenshots</h2>
-		<div class="reel" tabindex="0" aria-label="Screenshots, scroll sideways">
-			<figure><img src="media/dunewell-1280.jpg" srcset="media/dunewell-1280.jpg 1280w, media/dunewell.jpg 1920w" sizes="min(78vw, 980px)" width="1920" height="1080" loading="lazy" alt="Dunewell in the late afternoon: mud-plastered houses packed close round the well derrick, each with a wind-catcher tower and its cowl turned into the wind"><figcaption><b>Dunewell</b>A well, a market and a crowded town built from the wrecks.</figcaption></figure>
-			<figure><img src="media/wren-1280.jpg" srcset="media/wren-1280.jpg 1280w, media/wren.jpg 1920w" sizes="min(78vw, 980px)" width="1920" height="1080" loading="lazy" alt="The Patient Wren, a blocky cargo freighter broken in half and half buried in the sand, in low golden light, with SD-7 small in the foreground"><figcaption><b>The Patient Wren</b>SD-7's own ship, broken in the sand close to home.</figcaption></figure>
-			<figure><img src="media/hollowmere-1280.jpg" srcset="media/hollowmere-1280.jpg 1280w, media/hollowmere.jpg 1920w" sizes="min(78vw, 980px)" width="1920" height="1080" loading="lazy" alt="Mangroves hung with vines in the morning mist of a green crater, the pale hull of a crashed terraformer behind them"><figcaption><b>Hollowmere</b>A green crater where a crashed terraformer still breathes.</figcaption></figure>
-			<figure><img src="media/camp-1280.jpg" srcset="media/camp-1280.jpg 1280w, media/camp.jpg 1920w" sizes="min(78vw, 980px)" width="1920" height="1080" loading="lazy" alt="A traders' camp at night: a canvas shade, a contract board and crates round a small fire, with SD-7 and its headlamp in front"><figcaption><b>A traders' camp</b>Its lamp burns all night, for anyone still out there.</figcaption></figure>
-			<figure><img src="media/dawnbreaker-1280.jpg" srcset="media/dawnbreaker-1280.jpg 1280w, media/dawnbreaker.jpg 1920w" sizes="min(78vw, 980px)" width="1920" height="1080" loading="lazy" alt="Two suns setting side by side behind the Dawnbreaker, a huge slate warship half buried in sand, its bridge tower and plated hull against the sky"><figcaption><b>The Dawnbreaker</b>The Directorate flagship under two setting suns, where the message waits.</figcaption></figure>
-			<figure><img src="media/canyon-1280.jpg" srcset="media/canyon-1280.jpg 1280w, media/canyon.jpg 1920w" sizes="min(78vw, 980px)" width="1920" height="1080" loading="lazy" alt="Canyon City by day: plastered houses on the gorge floor, and rooms, walkways and lift masts cut into the orange canyon walls above"><figcaption><b>Canyon City</b>A mining town in a gorge, its homes cut into the cliffs.</figcaption></figure>
-			<figure><img src="media/glass-1280.jpg" srcset="media/glass-1280.jpg 1280w, media/glass.jpg 1920w" sizes="min(78vw, 980px)" width="1920" height="1080" loading="lazy" alt="Lightning striking a black glass spire in a sandstorm, an arc crawling across the sand to the next spire"><figcaption><b>The Glass Plain</b>Where the bombardment turned the sand to glass, and storms call down lightning.</figcaption></figure>
-			<figure><img src="media/scorch-1280.jpg" srcset="media/scorch-1280.jpg 1280w, media/scorch.jpg 1920w" sizes="min(78vw, 980px)" width="1920" height="1080" loading="lazy" alt="A toppled walker and wrecked tanks on a cratered battlefield, smoke still rising from them"><figcaption><b>The Scorch</b>The old battlefield, wrecks still smoking.</figcaption></figure>
-			<figure><img src="media/vashka-1280.jpg" srcset="media/vashka-1280.jpg 1280w, media/vashka.jpg 1920w" sizes="min(78vw, 980px)" width="1920" height="1080" loading="lazy" alt="The banded gas giant Vashka rising huge behind a dune in the violet dusk, the first stars out"><figcaption><b>Vashka</b>The gas giant that eclipses the sun every few days.</figcaption></figure>
+	<section class="shots" id="screenshots" aria-labelledby="screenshots-title">
+		<div class="wrap">
+			<h2 id="screenshots-title">Screenshots</h2>
+			<p class="lead">Every picture is from the game itself, in the current version. Select one to see it full size.</p>
+			<ul class="sheet">
+				<li><figure><a href="media/dawnbreaker.jpg"><img src="media/dawnbreaker-1280.jpg" srcset="media/dawnbreaker-1280.jpg 1280w, media/dawnbreaker.jpg 1920w" sizes="(max-width: 1180px) 92vw, 1180px" width="1920" height="1080" alt="Two suns setting side by side behind the Dawnbreaker, a huge slate warship half buried in sand, its bridge tower and plated hull against the sky"></a><figcaption><b>The Dawnbreaker</b>The Directorate flagship under two setting suns, where the message waits.</figcaption></figure></li>
+				<li><figure><a href="media/dunewell.jpg"><img src="media/dunewell-1280.jpg" sizes="(max-width: 520px) 92vw, (max-width: 900px) 46vw, 290px" srcset="media/dunewell-1280.jpg 1280w" width="1280" height="720" loading="lazy" alt="Dunewell in the late afternoon: mud-plastered houses packed close round the well derrick, each with a wind-catcher tower and its cowl turned into the wind"></a><figcaption><b>Dunewell</b>A well, a market and a crowded town built from the wrecks.</figcaption></figure></li>
+				<li><figure><a href="media/wren.jpg"><img src="media/wren-1280.jpg" sizes="(max-width: 520px) 92vw, (max-width: 900px) 46vw, 290px" srcset="media/wren-1280.jpg 1280w" width="1280" height="720" loading="lazy" alt="The Patient Wren, a blocky cargo freighter broken in half and half buried in the sand, in low golden light, with SD-7 small in the foreground"></a><figcaption><b>The Patient Wren</b>SD-7's own ship, broken in the sand close to home.</figcaption></figure></li>
+				<li><figure><a href="media/hollowmere.jpg"><img src="media/hollowmere-1280.jpg" sizes="(max-width: 520px) 92vw, (max-width: 900px) 46vw, 290px" srcset="media/hollowmere-1280.jpg 1280w" width="1280" height="720" loading="lazy" alt="Mangroves hung with vines in the morning mist of a green crater, the pale hull of a crashed terraformer behind them"></a><figcaption><b>Hollowmere</b>A green crater where a crashed terraformer still breathes.</figcaption></figure></li>
+				<li><figure><a href="media/camp.jpg"><img src="media/camp-1280.jpg" sizes="(max-width: 520px) 92vw, (max-width: 900px) 46vw, 290px" srcset="media/camp-1280.jpg 1280w" width="1280" height="720" loading="lazy" alt="A traders' camp at night: a canvas shade, a contract board and crates round a small fire, with SD-7 and its headlamp in front"></a><figcaption><b>A traders' camp</b>Its lamp burns all night, for anyone still out there.</figcaption></figure></li>
+				<li><figure><a href="media/canyon.jpg"><img src="media/canyon-1280.jpg" sizes="(max-width: 520px) 92vw, (max-width: 900px) 46vw, 290px" srcset="media/canyon-1280.jpg 1280w" width="1280" height="720" loading="lazy" alt="Canyon City by day: plastered houses on the gorge floor, and rooms, walkways and lift masts cut into the orange canyon walls above"></a><figcaption><b>Canyon City</b>A mining town in a gorge, its homes cut into the cliffs.</figcaption></figure></li>
+				<li><figure><a href="media/glass.jpg"><img src="media/glass-1280.jpg" sizes="(max-width: 520px) 92vw, (max-width: 900px) 46vw, 290px" srcset="media/glass-1280.jpg 1280w" width="1280" height="720" loading="lazy" alt="Lightning striking a black glass spire in a sandstorm, an arc crawling across the sand to the next spire"></a><figcaption><b>The Glass Plain</b>Where the bombardment turned the sand to glass, and storms call down lightning.</figcaption></figure></li>
+				<li><figure><a href="media/scorch.jpg"><img src="media/scorch-1280.jpg" sizes="(max-width: 520px) 92vw, (max-width: 900px) 46vw, 290px" srcset="media/scorch-1280.jpg 1280w" width="1280" height="720" loading="lazy" alt="A toppled walker and wrecked tanks on a cratered battlefield, smoke still rising from them"></a><figcaption><b>The Scorch</b>The old battlefield, wrecks still smoking.</figcaption></figure></li>
+				<li><figure><a href="media/vashka.jpg"><img src="media/vashka-1280.jpg" sizes="(max-width: 520px) 92vw, (max-width: 900px) 46vw, 290px" srcset="media/vashka-1280.jpg 1280w" width="1280" height="720" loading="lazy" alt="The banded gas giant Vashka rising huge behind a dune in the violet dusk, the first stars out"></a><figcaption><b>Vashka</b>The gas giant that eclipses the sun every few days.</figcaption></figure></li>
+			</ul>
 		</div>
-		<p class="hint">Scroll sideways for more. Every picture is from the game itself.</p>
 	</section>
 
-	<section class="journey" id="journey">
+	<section class="journey sand" id="journey">
 		<div class="wrap">
 			<h2>The journey</h2>
-			<p class="lead">WREN, the freighter's scattered ship mind, talks you across Kessra on the radio. The main story is one road in seven stops; the desert between them is yours to wander.</p>
+			<p class="lead">WREN talks you across Kessra on the radio. The main story is one road in seven stops and twenty-one objectives; the desert between them is yours to wander.</p>
 			<ol class="route">
 				<li><h3>The Scrap Plain</h3><p>Wake up beside the escape pod, scan for parts and climb the container field. Walk up the hull of the Patient Wren and bring out her signal core.</p><p class="finds">Grapple arm, jump thruster, magnet legs, cutting torch.</p></li>
 				<li><h3>The Glass Plain</h3><p>Where the bombardment turned the sand to glass. An escape pod and an old observatory, and the sun thrown back at you from every side.</p><p class="finds">Deflector shield, the focus lens.</p></li>
@@ -308,26 +398,74 @@ footer a { color: var(--sand); }
 				<li><h3>The caves</h3><p>Below the canyon, pitch black, lit only by the crystals that grow there and your own headlamp.</p><p class="finds">A resonance crystal.</p></li>
 				<li><h3>The Salt Graveyard</h3><p>Battleships of both fleets in a dry salt sea, and storms that strip paint. A Sable cruiser on its side can be searched from the inside.</p><p class="finds">The antenna coupler.</p></li>
 				<li><h3>The Crater Sea</h3><p>Soft sand and something that lives under it. Do not run.</p><p class="finds">Spider legs.</p></li>
-				<li><h3>The Dawnbreaker</h3><p>The Directorate flagship, fallen across the plain. Wake its rescue beacon, cut through the bulkhead and climb the collapsed decks to the bridge.</p><p class="finds">The transmitter.</p></li>
+				<li><h3>The Dawnbreaker</h3><p>The Directorate flagship, fallen across the plain. Throw the deck relays to wake the bridge, then climb the collapsed decks while the ship settles around you.</p><p class="finds">The transmitter.</p></li>
 			</ol>
 			<div class="aside">
 				<h3>Off the road</h3>
-				<p>Dunewell's market and houses, the green crater of Hollowmere and what lives in its swamp, the Scorch, sealed supply vaults, broken signal beacons, scrappers lost in storms, a scrap train that never stops, traders' contracts and photo jobs: side jobs that pay in scrap, and places no objective sends you.</p>
+				<p>Dunewell's market and houses, the green crater of Hollowmere and what lives in its swamp, the Scorch, two sealed supply vaults, five broken signal beacons, scrappers lost in storms, a scrap train that never stops, traders' contracts and photo jobs: thirty-two side jobs that pay in scrap, and places no objective sends you.</p>
 			</div>
 		</div>
 	</section>
 
-	<section class="play" id="play">
+	<section class="play band sand" id="play">
 		<div class="wrap">
-			<h2>How it plays</h2>
+			<h2>Parts are your skill tree</h2>
+			<p class="lead">SD-7 has six sockets. What you fit decides where you can go, and every part wears out as you use it.</p>
+			<dl class="slots">
+				<div><dt>Legs</dt><dd><ul>
+					<li><b>Wheels</b> Fast on open sand, useless on walls.</li>
+					<li><b>Mag-Legs</b> Walk up any metal surface; jump to let go.</li>
+					<li><b>Spider Legs</b> Climb steep rock and sand, keep your footing in storms, tread quietly.</li>
+				</ul></dd></div>
+				<div><dt>Back</dt><dd><ul>
+					<li><b>Jump Thruster</b> Jump again in mid-air, or hold to hover.</li>
+				</ul></dd></div>
+				<div><dt>Arm</dt><dd><ul>
+					<li><b>Grapple Arm</b> Hook on and reel yourself in.</li>
+					<li><b>Cutting Torch</b> Cut through glowing plates. Runs hot.</li>
+				</ul></dd></div>
+				<div><dt>Head</dt><dd><ul>
+					<li><b>Scanner</b> Reveal salvage through walls, and chart the map around you.</li>
+				</ul></dd></div>
+				<div><dt>Core</dt><dd><ul>
+					<li><b>Solar Panel</b> Recharge in direct sunlight.</li>
+					<li><b>Battery Cell</b> A spare power cell strapped to SD-7's back for more energy.</li>
+					<li><b>Cooling Block</b> Halves the sun's heat and cools faster in shade.</li>
+				</ul></dd></div>
+				<div><dt>Defence</dt><dd><ul>
+					<li><b>EMP Pulse</b> Stun everything close by; a stunned hunter can be salvaged.</li>
+					<li><b>Deflector Shield</b> Block bites and hits; attackers bounce off, dazed.</li>
+					<li><b>Blaster</b> Fire an amber bolt where you look.</li>
+				</ul></dd></div>
+			</dl>
 			<div class="systems">
 				<div><h3>Energy brings you home</h3><p>Everything you do costs charge. Solar panels, charge pads and energy caches keep you going; run flat and the rescue network brings you back to an explored base.</p></div>
 				<div><h3>The sun is not your friend</h3><p>Noon heat locks your systems until you cool down. Find shade, fit a cooling block, or travel at dusk.</p></div>
-				<div><h3>Parts wear out</h3><p>Every part takes wear. Broken legs make you limp; repair at a workbench or a tinker's camp, for scrap.</p></div>
-				<div><h3>The desert bites back</h3><p>Scavengers swarm your lamp at night, scrap hunters patrol, sandstorms push you around, lightning hits the Glass Plain, and the deep worm hears every fast wheel.</p></div>
-				<div><h3>Scrap is money</h3><p>Salvage it, sell services for it, buy upgrades, a paint job, a helper drone, and turn the escape pod into a home.</p></div>
+				<div><h3>Parts wear out</h3><p>Broken legs make you limp. Repair at a workbench or a tinker's camp, for scrap, or pack a field kit to swap a part out in the desert.</p></div>
+				<div><h3>The desert bites back</h3><p>Scavengers shy from your headlamp and circle round in the dark, scrap hunters hunt in pairs, sandstorms push you around, and the deep worm hears every fast wheel.</p></div>
+				<div><h3>Scrap is money</h3><p>Salvage it and spend it on upgrades, repairs, a paint job, a helper drone, and an escape pod that slowly turns into a home.</p></div>
 				<div><h3>A camera for the view</h3><p>Photo mode with film looks, depth of field and a letterbox. Some jobs even ask for a picture.</p></div>
 			</div>
+		</div>
+	</section>
+
+	<section class="marks sand" id="marks">
+		<div class="wrap split">
+			<div>
+				<h2>Scrap Marks</h2>
+				<p>Since version 0.10, SD-7 collects stamped steel tags for what it does on Kessra. They are earned in play only, the moment something happens, and all three save slots add to the same service record.</p>
+				<ul>
+					<li><b>60 marks</b> in eight sets: Story, Exploration, Salvage and rescue, Survival, Craft, Trade, Photography and a few hidden ones.</li>
+					<li><b>8 medals</b> on canvas ribbons, one for every complete set, and a service rank from Class D up to "Last Scrapper".</li>
+					<li><b>Rewards for show only:</b> two paint jobs, a rank stencil on SD-7's back plate, a photo look and frame, a planter for Mote, and a service board on the trophy wall at home. SD-7 plays exactly the same.</li>
+				</ul>
+				<p class="small">Notices wait for storms, cinematics and WREN, and can be made silent or switched off.</p>
+			</div>
+			<figure>
+				<img src="media/service-record.jpg" width="1280" height="720" loading="lazy"
+					alt="The Service record in the main menu: the service rank Last Scrapper with 60 of 60 marks, the Cease-fire Medal and Survey Star sets with their stamped steel tags, over the title backdrop">
+				<figcaption>The Service record in the main menu.</figcaption>
+			</figure>
 		</div>
 	</section>
 
@@ -352,91 +490,253 @@ footer a { color: var(--sand); }
 					<p>Three days later the first relief ship lands on Kessra. Its crew finds a small, rusty scrapper waiting by the escape pod, still maintaining.</p>
 					<div class="after">
 						<h3>When the game is over, and after</h3>
-						<p>The main story is finished when the cease-fire is sent: the last of WREN's twenty-one objectives. The ending screen shows how many days you spent on Kessra, how many memories you recovered and how many scrap hunters you salvaged. Then the game simply goes on, with the radio quiet now: the message keeps going out, and every side job, memory core, vault and corner of the map you have not found is still there.</p>
+						<p>The main story is finished when the cease-fire is sent: the last of WREN's twenty-one objectives. The ending screen shows how many days you spent on Kessra, how many memories you recovered and how many scrap hunters you salvaged. Then the game simply goes on, with the radio quiet now, and a checklist in the journal shows every memory core, vault, beacon and corner of the map you have not found yet.</p>
 					</div>
 				</div>
 			</details>
 		</div>
 	</section>
 
-	<section class="install" id="install">
+	<section class="roadmap" id="next">
 		<div class="wrap">
-			<div>
-				<h2>Install</h2>
-				<ol class="steps">
-					<li>Download <code>ScrappWars-0.10.0.0-windows-x64.zip</code> from the <a href="https://github.com/RobertAgterhuis/Game-ScrappWars/releases/latest">newest release</a>.</li>
-					<li>Unpack it anywhere.</li>
-					<li>Run <code>ScrappWarsUpdater.exe</code> in the unpacked folder. It checks every file, installs the game into <code>%LOCALAPPDATA%\Programs\ScrappWars</code>, adds it to the Start menu and starts it. No administrator rights needed.</li>
-				</ol>
-				<p>Windows may show a SmartScreen warning, because the game is not code-signed: choose "More info" and then "Run anyway".</p>
-			</div>
-			<div class="notes">
-				<h3>Updates</h3>
-				<p>The game looks for a new version when the main menu opens; Settings, Updates turns that off, adds beta versions or checks by hand. Installing is always your choice, the download is checked against its signature, and the old version comes back if anything goes wrong.</p>
-				<h3>Your saves</h3>
-				<p>Saves, settings and photos are kept in <code>%APPDATA%\Godot\app_userdata\ScrappWars</code> by default. To keep them somewhere else, such as another drive, open Settings, Data folder: the game copies everything there, checks the copy, and only then switches. Updates and uninstalling never touch your data folder.</p>
-				<h3>Uninstall</h3>
-				<p>Run <code>ScrappWarsUpdater.exe --uninstall</code> from the install folder.</p>
-			</div>
-		</div>
-	</section>
-
-	<section class="bugs" id="bugs">
-		<div class="wrap">
-			<div>
-				<h2>Found a bug?</h2>
-				<p>Report it from inside the game, right where it happens. Since version 0.5.0 fix 1, <kbd>Ctrl+Alt+B</kbd> works everywhere: in the menu, while playing and in photo mode.</p>
-				<ol class="steps">
-					<li>Press <kbd>Ctrl+Alt+B</kbd>. The game saves a screenshot of that moment and pauses.</li>
-					<li>Give the bug a short title, say what happened and, if you like, what you expected.</li>
-					<li>Press <b>Open on GitHub</b>. Your browser opens a new bug report, already filled in, and the folder with the screenshot opens beside it.</li>
-					<li>Drag the screenshot into the report and press <b>Submit new issue</b>. This needs a free GitHub account.</li>
-				</ol>
-				<div class="notes">
-					<h3>What is sent</h3>
-					<p>Only what the form shows: your text, the game's version, Windows version, graphics card and quality setting, where SD-7 is, the difficulty, the objective and the time of day. The last lines of the game log are optional and lose any folder paths and your Windows user name. Two more boxes, both off unless you tick them, put your latest session log and a copy of your save next to the screenshot, so a bug can be replayed exactly; you decide whether to drag them in. Nothing leaves your computer until you press Submit on GitHub; the game never posts anything by itself.</p>
-					<h3>Without the game</h3>
-					<p><a href="https://github.com/RobertAgterhuis/Game-ScrappWars/issues/new?template=bug_report.md">Open a bug report on GitHub</a> and fill in the same questions. Look through the <a href="https://github.com/RobertAgterhuis/Game-ScrappWars/issues">open issues</a> first: if your bug is already there, a comment or a thumbs-up helps just as much.</p>
-					<h3>Check your version</h3>
-					<p>On an older version? Update first (Settings, Updates): the bug may already be fixed. The <a href="https://github.com/RobertAgterhuis/Game-ScrappWars/blob/main/CHANGELOG.md">release notes</a> list every fix.</p>
-				</div>
-			</div>
-			<figure>
-				<img src="media/bug-report.jpg" width="980" height="680" loading="lazy"
-					alt="The Report a bug window over the game: title, what happened and what was expected on the left, the screenshot and the details that are sent on the right">
-				<figcaption>The bug report window, over the moment it was opened.</figcaption>
-			</figure>
-		</div>
-	</section>
-
-	<section class="next" id="next">
-		<div class="wrap">
-			<h2>What's next</h2>
-			<p class="lead">ScrappWars grows a little with every release. Here is where it stands, and where it goes from here.</p>
+			<h2>Where it stands</h2>
+			<p class="lead">ScrappWars is played, reported on and improved release by release. Every version so far, the one out now, and what comes next. New versions arrive through the game itself.</p>
 			<ol class="track">
+				<li>
+					<p class="when"><a href="https://github.com/RobertAgterhuis/Game-ScrappWars/releases/tag/v0.5.0.0">Version 0.5</a><time datetime="2026-10-29">29 Oct 2026</time></p>
+					<h3>The first public release of ScrappWars</h3>
+					<p class="fixes">Plus 1 fix release.</p>
+				</li>
+				<li>
+					<p class="when"><a href="https://github.com/RobertAgterhuis/Game-ScrappWars/releases/tag/v0.6.0.0">Version 0.6</a><time datetime="2026-10-29">29 Oct 2026</time></p>
+					<h3>The first big update after release</h3>
+					<p>A full director&#39;s pass over the story, the play, the look and the controls.</p>
+					<p class="fixes">Plus 1 fix release.</p>
+				</li>
+				<li>
+					<p class="when"><a href="https://github.com/RobertAgterhuis/Game-ScrappWars/releases/tag/v0.7.0.0">Version 0.7</a><time datetime="2026-10-29">29 Oct 2026</time></p>
+					<h3>Used Universe</h3>
+					<p>Kessra and everything on it looks older, harder used and more lived in.</p>
+				</li>
+				<li>
+					<p class="when"><a href="https://github.com/RobertAgterhuis/Game-ScrappWars/releases/tag/v0.8.0.0">Version 0.8</a><time datetime="2026-10-30">30 Oct 2026</time></p>
+					<h3>Twin Sunset</h3>
+					<p>Every machine, wreck, creature and corner of Kessra has been rebuilt to look harder used, patched together and lived in, and the desert now ends every day with two suns going down together.</p>
+					<p class="fixes">Plus 2 fix releases.</p>
+				</li>
+				<li>
+					<p class="when"><a href="https://github.com/RobertAgterhuis/Game-ScrappWars/releases/tag/v0.9.0.0">Version 0.9</a><time datetime="2026-10-30">30 Oct 2026</time></p>
+					<h3>Clear the backlog</h3>
+					<p>You choose how you play and where your game is kept, SD-7 walks and looks better than ever, and the big wrecks, the light and the frame rate all got a pass.</p>
+				</li>
 				<li class="here">
-					<p class="when">Version 0.10</p>
-					<h3>Out now: Scrap Marks</h3>
-					<ul>
-						<li>Sixty stamped steel tags for what SD-7 does on Kessra, earned only in play and shared by all your save slots.</li>
-						<li>Eight medals on canvas ribbons and a service rank from Class D to "Last Scrapper".</li>
-						<li>Cosmetic rewards: two paint jobs, a stencilled rank on SD-7, a photo look and frame, a planter for Mote, and a service board on the trophy wall at home.</li>
-					</ul>
+					<p class="when"><a href="https://github.com/RobertAgterhuis/Game-ScrappWars/releases/tag/v0.10.0.0">Version 0.10, out now</a><time datetime="2026-10-30">30 Oct 2026</time></p>
+					<h3>Scrap Marks</h3>
+					<p>SD-7 now collects stamped steel tags for what it does on Kessra, earns medals for full sets and climbs a service rank.</p>
 				</li>
-				<li>
-					<p class="when">Version 0.9</p>
-					<h3>Your game, your way</h3>
-					<p>Keyboard and mouse or a game controller with a live diagram, rebinding, a data folder of your own choosing, real knees and a working iris for SD-7, and a big pass on the wrecks, the light and the frame rate.</p>
-				</li>
-				<li>
+				<li class="next">
 					<p class="when">Next</p>
 					<h3>More of Kessra</h3>
-					<p>New places between the regions, more to find in the sand and more stories in the scrap. The desert is big, and there is room for it to fill up.</p>
+					<p>New places between the regions, more to find in the sand and more stories in the scrap. The desert is big, and there is room for it to fill up. What you report and suggest decides what goes first.</p>
 				</li>
 			</ol>
-			<div class="call">
-				<h3>Help steer it</h3>
-				<p>Every playtest shapes what comes next. If something breaks, confuses you or simply feels wrong, press <kbd>Ctrl+Alt+B</kbd> in the game and <a href="#bugs">report it</a>. New versions arrive through the game itself, so you never miss one.</p>
+			<p><a href="https://github.com/RobertAgterhuis/Game-ScrappWars/blob/main/CHANGELOG.md">Read every change in the release notes</a></p>
+		</div>
+	</section>
+
+	<section class="help band sand" id="help">
+		<div class="wrap">
+			<h2>Help build ScrappWars</h2>
+			<p class="lead">ScrappWars is a one-person project, shaped by the people who play it. You do not need to code to help: playing, reporting and saying what you think is the work that matters most right now.</p>
+			<div class="split">
+				<div class="ways">
+					<div>
+						<h3>Play it and tell how it went</h3>
+						<p>Play the first hour without help and notice where you get stuck, what you do not understand and what you enjoy. Then write it down while it is fresh: your graphics card, the resolution and tier you played on, what you changed in the settings and why.</p>
+						<p>The game can keep a local session log (Settings, "Keep a local session log (never sent)"): how long each objective took, how often SD-7 ran flat and why, which parts broke, and where scrap came from and went. It is anonymous and stays on your PC. Attach it to a report if you like.</p>
+					</div>
+					<div>
+						<h3>Report a bug from inside the game</h3>
+						<p>Press <kbd>Ctrl+Alt+B</kbd> wherever it happens: in the menu, while playing or in photo mode. The game saves a screenshot, pauses and asks what went wrong. <b>Open on GitHub</b> opens a new bug report in your browser, already filled in with your text, the version, where SD-7 is and your settings, and opens the folder with the screenshot so you can drag it in.</p>
+						<p>Two boxes, both off unless you tick them, put your latest session log and a copy of your save next to the screenshot, so the bug can be replayed exactly. Nothing leaves your computer until you press Submit on GitHub.</p>
+						<p class="links"><a href="https://github.com/RobertAgterhuis/Game-ScrappWars/issues/new?template=bug_report.md">Report a bug without the game</a> <a href="https://github.com/RobertAgterhuis/Game-ScrappWars/issues">See open issues</a></p>
+					</div>
+					<div>
+						<h3>Share ideas and ask questions</h3>
+						<p>The <a href="https://github.com/RobertAgterhuis/Game-ScrappWars/discussions">ScrappWars discussions</a> are the place for ideas, questions, what you thought of a region or the story, and the photos you took in photo mode. Bugs go in issues, everything else goes here. Both need a free GitHub account.</p>
+						<p class="links"><a href="https://github.com/RobertAgterhuis/Game-ScrappWars/discussions">Join the discussions</a></p>
+					</div>
+				</div>
+				<div>
+					<div class="wanted">
+						<h3>Most useful right now</h3>
+						<ul>
+							<li><b>The first hour.</b> Did you know what to do, and why? Where did you get stuck?</li>
+							<li><b>Search objectives.</b> Some objectives only show a marker after a scanner pulse nearby. Did that feel like discovery or frustration?</li>
+							<li><b>Scrap.</b> Did you ever have too much or too little, and when?</li>
+							<li><b>Swapping legs.</b> Did you drive back to a workbench just to change legs? Did you find the field kit?</li>
+							<li><b>The last climb.</b> Was the climb to the Dawnbreaker's bridge tense and fair?</li>
+							<li><b>Your PC.</b> Which graphics card, which tier the game picked, and whether it ran smoothly.</li>
+							<li><b>Reading.</b> Could you read every subtitle, notice and menu at your screen and distance?</li>
+						</ul>
+					</div>
+					<figure class="bugshot">
+						<img src="media/bug-report.jpg" width="980" height="680" loading="lazy"
+							alt="The Report a bug window over the game: title, what happened and what was expected on the left, the screenshot and the details that are sent on the right">
+						<figcaption>The bug report window, over the moment it was opened.</figcaption>
+					</figure>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="install sand" id="install">
+		<div class="wrap">
+			<h2>Install and play</h2>
+			<div class="split">
+				<div>
+					<h3>Install</h3>
+					<ol class="steps">
+						<li>Download <code>ScrappWars-0.10.0.0-windows-x64.zip</code> from the <a href="https://github.com/RobertAgterhuis/Game-ScrappWars/releases/latest">newest release</a>.</li>
+						<li>Unpack it anywhere.</li>
+						<li>Run <code>ScrappWarsUpdater.exe</code> in the unpacked folder. It checks every file, installs the game into <code>%LOCALAPPDATA%\Programs\ScrappWars</code>, adds it to the Start menu and starts it. No administrator rights needed; the unpacked folder can go afterwards.</li>
+					</ol>
+					<p>Windows may show a SmartScreen warning, because the game is not code-signed: choose "More info" and then "Run anyway".</p>
+					<h3>Updates</h3>
+					<p>The game looks for a new version when the main menu opens; Settings, Updates turns that off, adds beta versions or checks by hand. Installing is always your choice. The download is checked against its signature and checksum, the old version is kept as a backup, and it comes back if anything goes wrong.</p>
+					<h3>Your saves</h3>
+					<p>Three save slots. Saves, settings, photos, bug report screenshots and session logs are kept in <code>%APPDATA%\Godot\app_userdata\ScrappWars</code> by default. To keep them somewhere else, such as another drive, open Settings, Data folder: the game copies everything there, checks every file, and only then switches. Updates and uninstalling never touch your data folder.</p>
+					<h3>Uninstall</h3>
+					<p>Run <code>ScrappWarsUpdater.exe --uninstall</code> from the install folder. Your data folder stays; delete it by hand if you want it gone.</p>
+				</div>
+				<div id="requirements">
+					<h3>Will it run on my PC?</h3>
+					<p class="small">Estimates from measurements on one development PC, scaled to other cards. Tell us how it runs on yours.</p>
+					<div class="table-wrap">
+						<table>
+							<thead><tr><th scope="col"></th><th scope="col">Minimum<br><span class="small">Medium, 1080p, 60 fps</span></th><th scope="col">Recommended<br><span class="small">High, 1080p, 60 fps</span></th></tr></thead>
+							<tbody>
+								<tr><th scope="row">System</th><td>Windows 10 64-bit</td><td>Windows 10 or 11, 64-bit</td></tr>
+								<tr><th scope="row">Processor</th><td>6 cores, such as Ryzen 5 3600 or Core i5-10400</td><td>Ryzen 5 5600X, Core i5-12400 or better</td></tr>
+								<tr><th scope="row">Memory</th><td>8 GB</td><td>16 GB</td></tr>
+								<tr><th scope="row">Graphics</th><td>GTX 1660, RTX 3050 or RX 5500 XT, 6 GB, Vulkan 1.3</td><td>RTX 3060 or RX 6600 XT, 8 GB or better</td></tr>
+								<tr><th scope="row">Storage</th><td>1 GB free</td><td>An SSD</td></tr>
+							</tbody>
+						</table>
+					</div>
+					<p class="small">For Ultra at 1440p, plan on an RTX 4070 or RX 7800 XT class card.</p>
+					<h3>Graphics tiers</h3>
+					<div class="table-wrap">
+						<table>
+							<thead><tr><th scope="col">Tier</th><th scope="col">What it adds</th></tr></thead>
+							<tbody>
+								<tr><th scope="row">Low</th><td>The full world, art and story, lighter shadows and atmosphere. For integrated graphics.</td></tr>
+								<tr><th scope="row">Medium</th><td>Low dust over the ground and light shafts where the sun falls through the wrecks.</td></tr>
+								<tr><th scope="row">High</th><td>Volumetric clouds, heat shimmer over the far horizon, and SD-7's double shadow under the binary sunset.</td></tr>
+								<tr><th scope="row">Ultra</th><td>Everything at its best, and the big wrecks and rocks throw a soft second shadow too.</td></tr>
+							</tbody>
+						</table>
+					</div>
+					<p class="small">On the first start the game looks at your graphics card, measures the title screen once and picks a tier that runs well. A tier you chose yourself is never changed. Render scale, frame limit, vsync, volumetric clouds and global illumination can each be set on their own.</p>
+				</div>
+			</div>
+			<div class="controls" id="controls">
+				<div>
+					<h3>Controls</h3>
+					<p>Play with keyboard and mouse or a game controller. Settings, Controls lets you pick Automatic (prompts follow whatever you touched last), Keyboard and mouse, or Game controller, and rebind almost every action to another key, mouse button, controller button, trigger or stick direction. If the input is taken, the game offers to swap the two. A live diagram shows what every key and button does and lights up as you press it, and every prompt in the game names the key or button you actually use.</p>
+					<ul class="actionlist">
+						<li>Move</li>
+						<li>Jump and hover</li>
+						<li>Arm: grapple or torch</li>
+						<li>Scan</li>
+						<li>Interact</li>
+						<li>Headlamp</li>
+						<li>Throw scrap</li>
+						<li>Defence: EMP or shield</li>
+						<li>Repeat objective</li>
+						<li>Map and journal</li>
+						<li>Photo mode</li>
+						<li>Controls help</li>
+					</ul>
+					<p>Press-instead-of-hold for hover, torch, shield and grapple, interface scale, subtitle size and background, screen shake, field of view, look speed and inversion for mouse and stick, and high-contrast objective markers are all in the settings.</p>
+				</div>
+				<figure>
+					<img src="media/controls-diagram.jpg" width="472" height="672" loading="lazy"
+						alt="The Controls page with the Game controller chosen: a controller drawing with a labelled line from every button to its action, and the list of actions with their buttons below">
+					<figcaption>The Controls page with its live diagram.</figcaption>
+				</figure>
+			</div>
+		</div>
+	</section>
+
+	<section class="faq band sand" id="faq">
+		<div class="wrap">
+			<h2>Questions</h2>
+			<details>
+				<summary>Is it really free?</summary>
+				<div><p>Yes. ScrappWars is free to download, play and pass on unchanged. There are no purchases in the game and no account is needed to play.</p></div>
+			</details>
+			<details>
+				<summary>Does it need an internet connection?</summary>
+				<div><p>No. The game plays fully offline. It only goes online to check for a new version when the main menu opens, and you can switch that off in Settings, Updates.</p></div>
+			</details>
+			<details>
+				<summary>Does it run on Mac, Linux or Steam Deck?</summary>
+				<div><p>There is only a Windows 10 and 11 (64-bit) version so far. If you would like another platform, say so in the <a href="https://github.com/RobertAgterhuis/Game-ScrappWars/discussions">discussions</a>.</p></div>
+			</details>
+			<details>
+				<summary>Why does Windows warn me before it starts?</summary>
+				<div><p>The game is not code-signed, so SmartScreen does not know it yet. Choose "More info" and "Run anyway". The updater itself checks that every file is the one that was released: each release is signed, and a changed file is refused.</p></div>
+			</details>
+			<details>
+				<summary>Will an update break my saves?</summary>
+				<div><p>No. Updates never touch your data folder, and saves from older versions keep loading. The updater keeps the previous version as a backup and restores it if an update fails.</p></div>
+			</details>
+			<details>
+				<summary>Can I play with a controller?</summary>
+				<div><p>Yes. Prompts use neutral button names (A, B, X and Y by position). You can rebind it, and switch between controller and keyboard at any time.</p></div>
+			</details>
+			<details>
+				<summary>How hard is it?</summary>
+				<div><p>You choose Easy, Medium, Hard or Ultra at a new game and can switch at any time in the pause settings. Difficulty changes energy use, heat, wear, enemies and prices, and where SD-7 is brought back when it runs flat. The story, the map and the puzzles are the same on every difficulty.</p></div>
+			</details>
+			<details>
+				<summary>Can I stream it or make videos?</summary>
+				<div><p>Yes, including on channels that earn money from ads or donations. You can also share screenshots and photos you took in photo mode. The <a href="https://github.com/RobertAgterhuis/Game-ScrappWars/blob/main/LICENSE.md">licence</a> has the details.</p></div>
+			</details>
+			<details>
+				<summary>Is the source code available?</summary>
+				<div><p>No. The public repository holds the releases, the update channels, the release notes and this site; the source stays private. You can still shape the game through bug reports, discussions and playtests.</p></div>
+			</details>
+			<details>
+				<summary>Is it a beta?</summary>
+				<div><p>ScrappWars is complete from start to ending, and still growing. Stable versions are the default; Settings, Updates can add beta versions if you want to try new things first.</p></div>
+			</details>
+		</div>
+	</section>
+
+	<section class="credits sand" id="credits">
+		<div class="wrap">
+			<h2>Credits, licence and privacy</h2>
+			<div class="cols">
+				<div>
+					<h3>Made by</h3>
+					<p>ScrappWars is made by Robert Agterhuis, with the Godot Engine (MIT licence).</p>
+					<p>With the work of others, all free to use: scanned textures from <a href="https://polyhaven.com">Poly Haven</a>, <a href="https://ambientcg.com">ambientCG</a> and BlenderKit (CC0, public domain); the Rajdhani and Barlow Semi Condensed fonts (SIL Open Font License); Sunshine Clouds 2 by David House (MIT); and the Kokoro-82M speech model by hexgrad (Apache-2.0), used offline to record the voices. Every licence ships in the game's <code>licenses</code> folder.</p>
+				</div>
+				<div>
+					<h3>Licence</h3>
+					<p>Free to play on as many of your own computers as you like, free to pass on as a complete, unchanged release zip, and free to stream and film. Not for sale, not to be changed or taken apart. Read the full <a href="https://github.com/RobertAgterhuis/Game-ScrappWars/blob/main/LICENSE.md">licence</a>.</p>
+				</div>
+				<div>
+					<h3>Privacy</h3>
+					<ul>
+						<li>No account, no telemetry, no analytics, no ads, in the game or on this site.</li>
+						<li>The only thing the game fetches is the update check, a plain file read from GitHub, which you can switch off.</li>
+						<li>The session log is anonymous and stays on your PC; you decide whether to attach it.</li>
+						<li>A bug report is only sent when you press Submit on GitHub yourself, with your own account. GitHub issues and discussions are public.</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -446,10 +746,11 @@ footer a { color: var(--sand); }
 	<div class="wrap">
 		<span>ScrappWars © 2026 Robert Agterhuis. Free to play and to pass on unchanged.</span>
 		<nav aria-label="Links">
-			<a href="https://github.com/RobertAgterhuis/Game-ScrappWars/blob/main/LICENSE.md">Licence</a>
-			<a href="https://github.com/RobertAgterhuis/Game-ScrappWars/blob/main/CHANGELOG.md">Release notes</a>
 			<a href="https://github.com/RobertAgterhuis/Game-ScrappWars/releases">All releases</a>
-			<a href="#bugs">Report a bug</a>
+			<a href="https://github.com/RobertAgterhuis/Game-ScrappWars/blob/main/CHANGELOG.md">Release notes</a>
+			<a href="https://github.com/RobertAgterhuis/Game-ScrappWars/discussions">Discussions</a>
+			<a href="https://github.com/RobertAgterhuis/Game-ScrappWars/issues/new?template=bug_report.md">Report a bug</a>
+			<a href="https://github.com/RobertAgterhuis/Game-ScrappWars/blob/main/LICENSE.md">Licence</a>
 		</nav>
 	</div>
 </footer>
@@ -458,10 +759,18 @@ footer a { color: var(--sand); }
 (function () {
 	var video = document.getElementById("trailer");
 	var button = document.getElementById("sound");
-	if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-		video.removeAttribute("autoplay");
-		video.pause();
+	// The trailer plays by itself only on a wide screen, with motion allowed and no data saver.
+	var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+	var narrow = window.matchMedia("(max-width: 720px)").matches;
+	var saver = navigator.connection && navigator.connection.saveData;
+	if (calm || narrow || saver) {
 		video.controls = true;
+		button.hidden = true;
+	} else {
+		video.autoplay = true;
+		video.preload = "auto";
+		var started = video.play();
+		if (started && started.catch) { started.catch(function () { video.controls = true; }); }
 	}
 	button.addEventListener("click", function () {
 		var on = video.muted;
