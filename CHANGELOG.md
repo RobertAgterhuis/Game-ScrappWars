@@ -2,6 +2,21 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 0.8.0 fix 1 (0.8.0.1, 2026-10-30)
+
+The intro film and the website catch up with the new look of Kessra.
+
+### Intro film
+
+- **Kessra as it looks now:** the opening rises on the banded giant Vashka over the Dawnbreaker, the dogfight flies under both suns, the ground war shimmers in the midday heat, and the Patient Wren falls through a binary sunset.
+- **The Wren lands broken,** the way you find her in the game.
+- The Helion hover tanks are now in frame as they charge the six-legged Sable walkers.
+- The intro desert no longer shows stray green and white patches.
+
+### Website
+
+- New screenshots of every place on the site, taken in the current game, and a new trailer.
+
 ## 0.8.0 (0.8.0.0, 2026-10-30)
 
 The "Twin Sunset" update: every machine, wreck, creature and corner of Kessra has been rebuilt to look harder used, patched together and lived in, and the desert now ends every day with two suns going down together. Everything plays exactly as before.
