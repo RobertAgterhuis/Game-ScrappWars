@@ -2,6 +2,74 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 0.12.0 (0.12.0.0, 2026-10-31)
+
+The "Hard Light" update: Kessra gets a new look. The light has been re-keyed for every hour, the great wrecks and rocks have new shapes, the ground and minerals have new materials, and the effects have been rebuilt, with Ultra now a real top setting of its own.
+
+### Light and sky
+
+- **Dawn and dusk are no longer a pink wash.** The sky cools away from the suns, a warm band hugs the horizon on their side, and shadows go properly dark. Both sun discs read at a binary sunset.
+- **The double shadow reads.** The major sun's shadow is filled cool by the minor sun, the minor's warm by the major.
+- **Noon has contrast.** Shadows are about twice as deep and the sky is blue, never brighter than the sand.
+- **Night is moonlit, not mauve.** Mote's lamp now waits for a low sun instead of warming the dusk.
+- **Vashka and Teru are lit as spheres.** Vashka has curving cloud bands and an atmosphere rim, and Teru's rings cast and catch shadow. Both sit behind clouds and the horizon where they should.
+
+### Wrecks and machines
+
+- **The Dawnbreaker reads as the battleship from the intro:** a chined hull with an armour belt and casemates, a broken-off wedge prow and a stepped pagoda tower.
+- **The Long Night** carries a scavenged crane, strapped pods and open engine blocks.
+- **The Patient Wren** has her bridge tower, funnel, mast and cargo gantry back. Her hold is now a real interior with water tanks, seed racks and the signal-core cradle.
+- **The escape pod at home** is a scorched re-entry capsule with a heat shield, retro rockets and a blown parachute canister.
+- **Mote, the Rib Field and the spider legs:** Mote has a dented, lived-in body. The Rib Field's walker frames are bowed ribs hung with torn plating. The spider legs are load-bearing limbs with knees and claws.
+- **SD-7's paint shows.** Every livery now reads on the drum from the game camera.
+
+### The land
+
+- **Buttes, mesas and arches** are eroded rock with caprock, collapse scars and talus instead of round drums.
+- **Salt and crystal:**
+  - Salt pillars are stepped halite crags.
+  - The salt flats are a cracked crust.
+  - Obsidian spires are smoky black glass.
+  - Cave crystals glow from inside a clear shell.
+- **The ground:**
+  - The low-sun blotches in the sand are gone.
+  - Canyon rims and table-lands no longer show sawteeth.
+  - Gullies have cracked clay.
+  - Hollowmere's floor is mud.
+- **The Crater Sea's rim** has slumps, gullies and drifted sand.
+- **Hollowmere's mangroves** stand on arching prop roots, with real vines and water lilies on a reflective swamp.
+- **Dunewell** has new wind-catcher heads, and the traders' camps are fully kitted out.
+
+### Effects
+
+- **One effects language.** Dust, smoke and sparks share lit, soft materials across the game.
+- **Scanner, EMP and lightning:**
+  - The scanner sweep is a soft phosphor curtain.
+  - The EMP is a pressure shell with a sand ring, no longer a glass dome.
+  - Glass Plain lightning branches and arcs from spire to spire.
+- **The thruster** throws a small warm pool and a sand wash.
+- **Smaller fixes:**
+  - Scan labels stay out of photos.
+  - Thin poles between the camera and SD-7 fade.
+  - The ending's beacon columns stay out of the relief arrival.
+- **Scratches only where metal is touched,** no more white scratch overlay on whole walls.
+
+### Ultra and performance
+
+- **Ultra is its own tier:** soft sun and moon shadows and finer reflections. High, Medium and Low keep their cost.
+- **Cheaper shadows** in Dunewell and on the open ground, and scavengers that draw about five times cheaper.
+- **The title screen draws a third of what it did.**
+- **The automatic graphics choice is recalibrated,** so slower cards no longer start on Ultra.
+
+### New CC0 assets
+
+Rock, salt, clay, mud and bark scans and eight salvage props from Poly Haven, ambientCG and BlendKit, all public domain (CC0) and listed in the game's third-party notes.
+
+### Fixes
+
+- Cave scavenger packs spawned under the ground; they now start on the cave floor.
+- The rescue beacon and charge pad lamps no longer burn at full by day.
+
 ## 0.11.0 (0.11.0.0, 2026-10-31)
 
 The "Three Days Later" update: WREN now notices what SD-7 has already done, the story tells one consistent account from the intro to the last log, and the ending goes on to the day the first relief ship lands.
