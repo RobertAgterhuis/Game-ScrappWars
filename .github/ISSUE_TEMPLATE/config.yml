@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Ideas and suggestions
+    url: https://github.com/RobertAgterhuis/Game-ScrappWars/discussions/categories/ideas
+    about: A part, a place or a feature you would like in ScrappWars. Issues are for bugs.
+  - name: Help and questions
+    url: https://github.com/RobertAgterhuis/Game-ScrappWars/discussions/categories/help-questions
+    about: Installing, controls, settings or stuck in the game? Ask here.
+  - name: Playtest reports
+    url: https://github.com/RobertAgterhuis/Game-ScrappWars/discussions/categories/playtest-reports
+    about: Tell how a session went, where you got stuck and what you enjoyed.

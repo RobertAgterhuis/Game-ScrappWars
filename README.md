@@ -54,9 +54,19 @@ from the folder that opens. Without the game:
 
 ## Ideas, questions and feedback
 
-Ideas, questions, playtest impressions and photo-mode pictures go to the
-[discussions](https://github.com/RobertAgterhuis/Game-ScrappWars/discussions);
-bugs go to the issues (above).
+Everything that is not a bug goes to the
+[discussions](https://github.com/RobertAgterhuis/Game-ScrappWars/discussions):
+
+- [Dispatches](https://github.com/RobertAgterhuis/Game-ScrappWars/discussions/categories/dispatches): news and releases.
+- [Ideas](https://github.com/RobertAgterhuis/Game-ScrappWars/discussions/categories/ideas): parts, places and features you would like.
+- [Playtest reports](https://github.com/RobertAgterhuis/Game-ScrappWars/discussions/categories/playtest-reports): how a session went,
+  where you got stuck, what you enjoyed.
+- [Help & questions](https://github.com/RobertAgterhuis/Game-ScrappWars/discussions/categories/help-questions): installing,
+  controls, settings, or stuck in the game.
+- [Photo mode](https://github.com/RobertAgterhuis/Game-ScrappWars/discussions/categories/photo-mode): your pictures of Kessra.
+- [Dunewell](https://github.com/RobertAgterhuis/Game-ScrappWars/discussions/categories/dunewell): everything else, round the well.
+
+Bugs go to the issues (above).
 
 ## Uninstall
 

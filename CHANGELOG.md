@@ -2,6 +2,43 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 0.11.0 (0.11.0.0, 2026-10-31)
+
+The "Three Days Later" update: WREN now notices what SD-7 has already done, the story tells one consistent account from the intro to the last log, and the ending goes on to the day the first relief ship lands.
+
+### WREN notices
+
+- **Ahead of her? She says so.** Find a part, reach a place or finish a job before WREN asks, and she no longer briefs you on something you have already done. She tells you she noticed, and why it mattered: why the transmitter needs that piece, why the spider legs, what the welded bulkhead is for.
+- **Side jobs you already finished** are acknowledged and paid at once instead of being handed out as new work.
+- **She remembers who you have met.** Once you have read the memory a lamp, a coupler or a deflector belongs to, WREN can name the person who left it behind.
+- **Loading a save stays quiet.** Jobs that opened while you were away arrive as one note in the journal.
+
+### One story
+
+- **One account of the night the Patient Wren fell.** Each fleet was told a different lie about her on the same night, and every log, intro line, townsfolk remark and WREN line now tells it the same way.
+- **Directions and timeline fixed.** Where the Dawnbreaker came down, where the Scorch lies, which way Hollowmere is and when the Wren fell now agree with the map and with each other. The fleets' colours and the Wren's own colours match what you see.
+- **Re-voiced lines.** WREN has more than fifty new and re-recorded lines, and several crew memories and one intro line were recorded again.
+- **A miner's lamp** now lies in the caves beside the crystal WREN talks about.
+
+### Pacing
+
+- **Side jobs are spread out** along the main line instead of five arriving at once.
+- **WREN's remarks no longer arrive late.** A comment on a storm or a part waits for her to finish talking, and one that would come too late is dropped instead of playing out of context.
+- **When several things are done early at once,** WREN keeps it short.
+- **The Dawnbreaker's deck relays wake when WREN asks for them.** Before that they are dead, so the ship stays calm until the last climb begins. A save that already powered the bridge keeps its power.
+
+### A new ending scene
+
+- **"Three days later."** After the epilogue the first relief ship comes down beside the escape pod in the binary morning, lowers its ramp, and its crew walk out to meet SD-7. It plays in the game's own light, with your scrapper's own parts, paint and wear, and can be skipped like the other cinematics.
+
+### Fixes
+
+- **The day and night clock runs again after the ending.** Keep exploring and the sun moves on from where it was, instead of staying stuck at the epilogue's sunset.
+- **Old saves and the torch.** A save from before the torch moved earlier in the story is sent back to pick it up, then continues where it was.
+- **Scans find later targets.** A scanner pulse now locates any upcoming target in range, not only the current one.
+- A finished story no longer briefs objectives that were still open when the cease-fire came.
+- WREN no longer repeats her current request after you finish a side job, and long "you were ahead of me" runs are kept short without losing the important beats.
+
 ## 0.10.0 (0.10.0.0, 2026-10-30)
 
 The "Scrap Marks" update: SD-7 now collects stamped steel tags for what it does on Kessra, earns medals for full sets and climbs a service rank. Everything you earn is for show; SD-7 plays exactly as before.

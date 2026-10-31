@@ -1,0 +1,35 @@
+title: "[Photo] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Show us Kessra through SD-7's lens. Photo mode saves your pictures to the photos folder in the game's data folder (Settings, Data folder..., Open folder).
+
+        One subject per post keeps the gallery easy to browse. Keep late-story places out of the title.
+  - type: textarea
+    id: photos
+    attributes:
+      label: Your photo(s)
+      description: Drag the picture(s) here.
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Where and when
+      placeholder: "The Salt Graveyard, binary sunset after a storm"
+    validations:
+      required: false
+  - type: input
+    id: look
+    attributes:
+      label: Look, frame and graphics tier
+      placeholder: "Storm print look, letterbox, Ultra"
+    validations:
+      required: false
+  - type: textarea
+    id: story
+    attributes:
+      label: The story behind it (optional)
+    validations:
+      required: false

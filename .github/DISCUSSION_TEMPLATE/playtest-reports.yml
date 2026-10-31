@@ -1,0 +1,96 @@
+title: "[Playtest] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for playing. Write it down while it is fresh: where you got stuck, what you did not understand and what you enjoyed. Honest beats polite.
+
+        Put spoilers behind a spoiler note in the title (for example "[Playtest] after the bridge, spoilers"). A clear bug is better as an issue: press **Ctrl+Alt+B** where it happens.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Main menu, bottom left.
+      placeholder: "0.10.0.0"
+    validations:
+      required: true
+  - type: input
+    id: length
+    attributes:
+      label: How long did you play, and how far did you get?
+      placeholder: "About 90 minutes, up to the Dunewell market"
+    validations:
+      required: true
+  - type: dropdown
+    id: difficulty
+    attributes:
+      label: Difficulty
+      options:
+        - Easy
+        - Medium
+        - Hard
+        - Ultra
+    validations:
+      required: true
+  - type: dropdown
+    id: tier
+    attributes:
+      label: Graphics tier
+      options:
+        - Low
+        - Medium
+        - High
+        - Ultra
+        - Not sure
+    validations:
+      required: true
+  - type: input
+    id: pc
+    attributes:
+      label: Graphics card, resolution, and how it ran
+      placeholder: "RTX 3060, 1920x1080, smooth except in storms"
+    validations:
+      required: false
+  - type: dropdown
+    id: device
+    attributes:
+      label: Played with
+      options:
+        - Keyboard and mouse
+        - Controller
+        - Both
+    validations:
+      required: false
+  - type: textarea
+    id: stuck
+    attributes:
+      label: Where did you get stuck or lost?
+      description: Did you know what to do, and why? Did a search objective feel like discovery or frustration?
+    validations:
+      required: true
+  - type: textarea
+    id: liked
+    attributes:
+      label: What did you enjoy?
+    validations:
+      required: false
+  - type: textarea
+    id: scrap
+    attributes:
+      label: Scrap, heat and power
+      description: Did you ever have too much or too little scrap? How often did SD-7 overheat or run flat, and did it feel fair?
+    validations:
+      required: false
+  - type: textarea
+    id: settings
+    attributes:
+      label: Settings you changed, and why
+    validations:
+      required: false
+  - type: textarea
+    id: log
+    attributes:
+      label: Session log (optional)
+      description: With Settings, "Keep a local session log (never sent)" on, the game writes an anonymous log to the session_logs folder in its data folder (Settings, Data folder..., Open folder). Drag the newest file here if you like.
+    validations:
+      required: false

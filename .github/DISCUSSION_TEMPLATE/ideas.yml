@@ -1,0 +1,38 @@
+title: "[Idea] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A part SD-7 should carry, a place on Kessra worth a detour, something WREN should say, a setting you missed. Small ideas are welcome.
+
+        Search first: if someone already had it, add your vote and your angle there. Something broken is a bug, not an idea: press **Ctrl+Alt+B** in the game or open an [issue](https://github.com/RobertAgterhuis/Game-ScrappWars/issues/new?template=bug_report.md).
+  - type: dropdown
+    id: area
+    attributes:
+      label: What is it about?
+      options:
+        - Parts and abilities
+        - Places and the world
+        - Story, WREN and the memory cores
+        - Enemies, worms and storms
+        - Scrap, traders and upgrades
+        - Scrap Marks
+        - Photo mode
+        - Controls, settings and accessibility
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: The idea
+      description: What should be in the game, and what would SD-7 (or you) do with it?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it would help
+      description: The moment in play where you wanted it. What was missing, slow or dull?
+    validations:
+      required: false

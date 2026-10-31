@@ -1,0 +1,43 @@
+title: ""
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ask anything about installing, updating, controls, settings or where to go next. When an answer helps, mark it as the answer so the next scrapper finds it.
+
+        Hints are fine; give a spoiler warning in your title if the question gives away the story. If the game is clearly doing something wrong, report it from the game with **Ctrl+Alt+B** instead.
+  - type: dropdown
+    id: topic
+    attributes:
+      label: Topic
+      options:
+        - Installing or updating
+        - Starting the game or performance
+        - Controls and settings
+        - Saves and the data folder
+        - Stuck in the game (where to go, what to do)
+        - Something else
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Main menu, bottom left. Leave empty if the game does not start.
+      placeholder: "0.10.0.0"
+    validations:
+      required: false
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+      description: What were you trying to do, what did you try, and what happened?
+    validations:
+      required: true
+  - type: input
+    id: pc
+    attributes:
+      label: Windows version and graphics card (for install and performance questions)
+      placeholder: "Windows 11, RX 6700 XT"
+    validations:
+      required: false
