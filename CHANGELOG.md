@@ -2,6 +2,14 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 0.12.0 fix 5 (0.12.0.5, 2026-11-01)
+
+Fix 5 for "Hard Light": the controller rumbles.
+
+- **Controller vibration.** When you play with a controller, it now rumbles with the game: bites, a part breaking, the EMP, thruster bursts, the grapple's claw latching, the magnet legs gripping a hull, the cutting torch humming as it burns, the sand worm and heavy impacts, the Patient Wren's crash in the intro and the relief lander touching down.
+- **Its own setting.** "Controller vibration" on the Controls page sets the strength or turns it off. It is separate from screen shake, so you can keep one without the other.
+- **Only when you use the controller.** It stops at once when you pause, switch to another window or pick up the keyboard.
+
 ## 0.12.0 fix 4 (0.12.0.4, 2026-11-01)
 
 Fix 4 for "Hard Light": the Long Night's skyline and SD-7's paint from the front.
