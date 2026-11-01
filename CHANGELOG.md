@@ -2,6 +2,17 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 0.12.0 fix 3 (0.12.0.3, 2026-11-01)
+
+Fix 3 for "Hard Light": clouds over Kessra.
+
+- **Clouds you can see from the ground.** On High and Ultra the volumetric clouds never actually showed from the ground. Now a calm day has sparse, high fair-weather clouds, and a sandstorm still tears them apart.
+- **Dusk cirrus.** Thin, dust-tinted streaks of high cloud glow pink and orange as the suns go down.
+- **Vashka in colour by day.** The gas giant shows its cream and salmon bands again instead of a grey disc.
+- **The cloud haze follows the sky** of each hour, so the golden hour is golden again.
+- **About 1 ms faster on High and Ultra:** the cloud pass was running twice every frame.
+- **Low and Medium** show a slightly fuller flat cloud layer.
+
 ## 0.12.0 fix 2 (0.12.0.2, 2026-11-01)
 
 Fix 2 for "Hard Light": the scrapper no longer vanishes into the sand or the walls.
