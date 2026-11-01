@@ -2,6 +2,14 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 0.12.0 fix 4 (0.12.0.4, 2026-11-01)
+
+Fix 4 for "Hard Light": the Long Night's skyline and SD-7's paint from the front.
+
+- **The Long Night breaks the skyline.** Seen across the salt plain, the cruiser no longer shows one long bare back. A leaning Sable deckhouse stands beside the entry, its fore half caved in under a strapped tarp. Her back is broken open midships, and the stern's plating curls back over the torn end. The deckhouse is solid.
+- **SD-7's paint shows from the front too.** The salvaged slate plate now covers only the lower front of the drum, and the hub rings carry the livery's colour. Every paint job reads head-on as well as from behind. The game icon and the boot splash are updated to match.
+- **Models build the same every time.** The crystal clusters, salt pillars, supply vaults and the Dunewell well derrick now come out byte-identical from every build. You won't see a difference in game, but future updates get smaller and steadier.
+
 ## 0.12.0 fix 3 (0.12.0.3, 2026-11-01)
 
 Fix 3 for "Hard Light": clouds over Kessra.
