@@ -2,6 +2,15 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 0.12.0 fix 2 (0.12.0.2, 2026-11-01)
+
+Fix 2 for "Hard Light": the scrapper no longer vanishes into the sand or the walls.
+
+- **No more disappearing into sand beside the Dawnbreaker.** The big sand drifts round the wreck were only a picture, so the scrapper could drive into them and vanish. They are solid sand now.
+- **Canyon City's buildings:** the thick plaster on the Mine Office, the Workshop and the Depot is solid, so magnet legs can no longer climb up inside it out of sight.
+- **A safety net under the world:** if the scrapper ever falls beneath the desert, it is put back on the last ground it stood on.
+- **Photo mode on a controller:** B now lowers the camera instead of leaving photo mode, and the D-pad left and right zoom the lens.
+
 ## 0.12.0 fix 1 (0.12.0.1, 2026-11-01)
 
 Fix 1 for "Hard Light": the first round of visual tuning after 0.12.
