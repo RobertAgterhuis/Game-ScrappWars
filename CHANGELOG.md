@@ -2,6 +2,15 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 0.12.0 fix 6 (0.12.0.6, 2026-11-01)
+
+Fix 6 for "Hard Light": you feel how SD-7 moves.
+
+- **Landing.** Coming down after a jump or a drop now gives a thump on the controller. A small hop is a faint tick; a jump off a rock or a wreck lands hard.
+- **Footsteps.** On spider legs or magnet legs every footfall gives a light tick, a little crisper on metal than on sand.
+- **Rolling.** On wheels the controller rumbles softly with your speed and with the ground under you: smooth on sand, rattling on a metal hull, bumpy over rock and glass. Standing still, flying and hovering stay quiet.
+- **Movement rumble.** A new slider on the Controls page, under "Controller vibration", sets how strong movement feels or turns it off. Hits, the EMP and the other big moments keep their own rumble.
+
 ## 0.12.0 fix 5 (0.12.0.5, 2026-11-01)
 
 Fix 5 for "Hard Light": the controller rumbles.
