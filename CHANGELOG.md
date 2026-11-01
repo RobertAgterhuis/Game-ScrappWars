@@ -2,6 +2,19 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 0.12.0 fix 1 (0.12.0.1, 2026-11-01)
+
+Fix 1 for "Hard Light": the first round of visual tuning after 0.12.
+
+- **The scanner sweep no longer glows at dusk.** It follows how bright the scene is, so at low light it is a dim trace instead of a bright mint band round the horizon.
+- **The thruster's dust at night** is smaller, quicker and lit by the flames, instead of dark clumps under the scrapper.
+- **No more sand blotches on dark hulls in Ultra storms.**
+- **Salt pillars** keep more of their pale crust at a distance.
+- **Low and Medium are no longer brighter than High and Ultra** at noon and in the golden hour.
+- **The Patient Wren's hold** gets warm daylight through its rift, and its green cast is gone.
+- **Light shafts** in the hold, the Dawnbreaker's frames and the canyon gorge are a little stronger.
+- **Dusk is slightly softer:** backlit dunes and the double shadow keep a bit more detail.
+
 ## 0.12.0 (0.12.0.0, 2026-10-31)
 
 The "Hard Light" update: Kessra gets a new look. The light has been re-keyed for every hour, the great wrecks and rocks have new shapes, the ground and minerals have new materials, and the effects have been rebuilt, with Ultra now a real top setting of its own.
