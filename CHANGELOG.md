@@ -2,6 +2,13 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 1.0.1 beta fix 1 (1.0.1.1, 2026-11-02)
+
+Beta fix 1 for 1.0: groundwork for hunting down the bugs where SD-7 sinks into things or the camera ends up inside them.
+
+- **Better bug reports from your own play.** When the game has to catch SD-7 after it falls through the world, or the camera ends up inside an object, the local session log now notes where it happened, in which area and on which legs. Attach your session log when you report a bug (Ctrl+Alt+B) and we can go straight to the spot.
+- **Behind the scenes:** the game now gets checked by an automatic sweep that drives SD-7 into every object on every set of legs and swings the camera round it. Its findings will be fixed in the next beta updates.
+
 ## 1.0.1 beta (1.0.1.0, 2026-11-02)
 
 The "Ceasefire" update: ScrappWars 1.0 is in beta. The whole game, from the crash of the Patient Wren to the day the relief ship lands, is in and complete; this beta is for finding the bugs that are left before 1.0 comes out for everyone.
