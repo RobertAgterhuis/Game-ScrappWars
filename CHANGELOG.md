@@ -2,6 +2,14 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 0.12.0 fix 7 (0.12.0.7, 2026-11-02)
+
+Fix 7 for "Hard Light": credits, and the way into the Workshop.
+
+- **Credits.** The game now has its credits: who made it, the engine and tools it is built with, the cloud add-on, the fonts, every public-domain scan and prop with its maker, and the voices. Open them from the main menu, or from the ending screen when you finish. They roll like a film's end titles; scroll them yourself if you like.
+- **The Workshop is open.** In Canyon City's gorge a heap of rubble blocked the Workshop's door. It now lies beside the wall, and SD-7 can drive in on every set of legs.
+- **The website** now describes all three boxes in the bug report form correctly.
+
 ## 0.12.0 fix 6 (0.12.0.6, 2026-11-01)
 
 Fix 6 for "Hard Light": you feel how SD-7 moves.
