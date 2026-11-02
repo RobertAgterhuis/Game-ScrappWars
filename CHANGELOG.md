@@ -2,6 +2,30 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 1.0.1 beta (1.0.1.0, 2026-11-02)
+
+The "Ceasefire" update: ScrappWars 1.0 is in beta. The whole game, from the crash of the Patient Wren to the day the relief ship lands, is in and complete; this beta is for finding the bugs that are left before 1.0 comes out for everyone.
+
+### How to join
+
+- In the main menu, open Settings, then Updates, and turn on **Include beta versions**. The game offers the beta the next time it checks for updates.
+- Without it, you stay on the stable version (0.12) until 1.0 is released for everyone.
+- Your saves, settings and photos carry over. You can go back to stable at any time from the same page, once a stable version newer than your beta is out.
+
+### What 1.0 brings
+
+Everything from the "Hard Light" update and its seven fixes is in the beta:
+
+- **A new look for Kessra.** Re-keyed light for every hour, reshaped wrecks and rocks, new ground and mineral materials, rebuilt effects and a real Ultra setting.
+- **Clouds over the desert**, dusk cirrus, and Vashka in colour by day.
+- **Controller vibration** for hits, the EMP, the thruster, the grapple and the magnet legs, and for how SD-7 moves: landings, footsteps and rolling over sand, metal and rock. Two sliders on the Controls page set the strength.
+- **Credits**, from the main menu and from the ending screen.
+- Many smaller fixes: the Long Night's skyline, SD-7's paint seen from the front, the way into the Workshop, falling through the world, sand you could drive through, and more.
+
+### Help us find what is left
+
+Press Ctrl+Alt+B wherever something goes wrong. The game takes a screenshot and opens a filled-in bug report on GitHub. Everything you report before 1.0 is fixed in a beta update first.
+
 ## 0.12.0 fix 7 (0.12.0.7, 2026-11-02)
 
 Fix 7 for "Hard Light": credits, and the way into the Workshop.
