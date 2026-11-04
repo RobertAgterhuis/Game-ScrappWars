@@ -2,6 +2,15 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 1.1.0 fix 2 (1.1.0.2, 2026-11-04)
+
+Fix 2 for 1.1: the next stretch of More of Kessra. The long roads between the regions now pass wrecks and the odd dew farm.
+
+- **Wrecks along the roads.** About a dozen more crash sites lie in the sand just off the long routes: a half-buried hull piece, ribs and debris, with a little scrap to collect. They give the drive between the regions something to steer by.
+- **Dew farms.** A few small farms stand beside the roads: rows of dew traps, a shade tarp, a loader scrapper tending them and a condensate tank that cools SD-7 down when it runs hot. The worm leaves them alone, so they are a safe place to stop.
+
+Saves, settings, photos and Scrap Marks carry over.
+
 ## 1.1.0 fix 1 (1.1.0.1, 2026-11-04)
 
 Fix 1 for 1.1: the first stretch of More of Kessra. The open desert between the regions gets more places to charge, more places to stop and look, and more life on its riverbeds and ridges.
