@@ -2,6 +2,17 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 1.1.0 fix 1 (1.1.0.1, 2026-11-04)
+
+Fix 1 for 1.1: the first stretch of More of Kessra. The open desert between the regions gets more places to charge, more places to stop and look, and more life on its riverbeds and ridges.
+
+- **More charging spots.** Eight new solar masts stand beside the long routes, so no stretch of road runs much more than 75 m from a place to charge.
+- **Five new lookouts** on the sandstone ridges between the regions: over the Scorch, the Crater Sea, the Dawnbreaker, the east ridge and the way to Hollowmere. Rest at one and the camera eases out over the view, and the map gets charted round the spot and towards what you are looking at.
+- **Riverbeds and ridges come alive.** Scrub, tufts and stones grow on the floors of the dry riverbeds and in the lee of the ridges, and solid fallen boulders lie in the scree at the ridges' feet. The roads themselves stay clear.
+- **Behind the scenes:** the automatic bug sweep no longer mistakes a spinning part crate for a changed area.
+
+Saves, settings, photos and Scrap Marks carry over.
+
 ## 1.1.0 (1.1.0.0, 2026-11-04)
 
 The "Ceasefire" update: the whole of ScrappWars is out for everyone, from the crash of the Patient Wren to the day the relief ship lands, with the bugs the beta turned up fixed. This is version 1.1: it brings the 1.0 beta to every player, together with all its fixes, so stable players and beta players move to the same game.
