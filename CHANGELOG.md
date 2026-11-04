@@ -2,6 +2,34 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 1.1.0 (1.1.0.0, 2026-11-04)
+
+The "Ceasefire" update: the whole of ScrappWars is out for everyone, from the crash of the Patient Wren to the day the relief ship lands, with the bugs the beta turned up fixed. This is version 1.1: it brings the 1.0 beta to every player, together with all its fixes, so stable players and beta players move to the same game.
+
+### What it brings
+
+Everything the 1.0 beta had, now on the stable channel:
+
+- **A new look for Kessra.** Re-keyed light for every hour, reshaped wrecks and rocks, new ground and mineral materials, rebuilt effects and a real Ultra setting.
+- **Clouds over the desert**, dusk cirrus, and Vashka in colour by day.
+- **Controller vibration** for hits, the EMP, the thruster, the grapple and the magnet legs, and for how SD-7 moves: landings, footsteps and rolling over sand, metal and rock. Two sliders on the Controls page set the strength.
+- **Credits**, from the main menu and from the ending screen.
+
+### Solid where it looks solid
+
+During the beta an automatic sweep drove SD-7 into every object in the world on every set of legs and swung the camera round it. More than 400 places it found are fixed:
+
+- **No more falling out of the world** or getting stuck for good: in Canyon City's cliff homes, at the supply vaults, in the Scorch, among the field drums and the Salt Graveyard's ribs.
+- **Wrecks, ribs, rocks and ships are solid as they look**: the Scorch's war machines, the Rib Field, the buttes and their scree, the Seedbearer, the Salt Graveyard's ships, the container field and its crane, the escape pods and the Patient Wren's hull and hold.
+- **SD-7 no longer drives through or sinks into** loader scrappers, survey drones, memory pedestals, rescue beacons, charge pads, power cells, crates, tarps, relays, beacons, trees, camps, ramps, leaning plates, Canyon City's houses and lifts, Dunewell's well, awnings and dew traps, the mine's arches and rails, and the bones in the desert.
+- **Magnet legs** only grip faces wide enough to stand on, never climb plaster, tents or rock, and never flip onto the far side of a thin part.
+- **The camera** keeps its eye on the line it has checked, so it no longer slips into overhangs, canopies and ceilings above SD-7.
+- Small gaps where only a jump got SD-7 out are closed or widened.
+
+### Your saves
+
+Saves, settings, photos and Scrap Marks carry over. Beta players can turn **Include beta versions** off again under Settings, Updates; this release is newer than the beta, so nobody has to go back.
+
 ## 1.0.1 beta fix 1 (1.0.1.1, 2026-11-02)
 
 Beta fix 1 for 1.0: groundwork for hunting down the bugs where SD-7 sinks into things or the camera ends up inside them.
