@@ -2,6 +2,15 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 1.1.0 fix 3 (1.1.0.3, 2026-11-08)
+
+Fix 3 for 1.1: the first step in finishing the Weeping Wall, the water-carved table-land in the north-west.
+
+- **Groundwork for the Weeping Wall.** Behind the scenes, this release prepares the region's overhaul: a bug sweep of the falls, the climb and the pump gallery found nothing to fix, and the tools used to look at the region now frame it properly, so every change to come can be compared shot for shot.
+- **Nothing changes in play.** Your game plays exactly as before. The falls, the climb and the pump gallery get their visible makeover in the next releases.
+
+Saves, settings, photos and Scrap Marks carry over.
+
 ## 1.1.0 fix 2 (1.1.0.2, 2026-11-04)
 
 Fix 2 for 1.1: the next stretch of More of Kessra. The long roads between the regions now pass wrecks and the odd dew farm.
