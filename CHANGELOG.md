@@ -2,6 +2,24 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 1.1.0 fix 4 (1.1.0.4, 2026-11-08)
+
+Fix 4 for 1.1: the Weeping Wall's falls finally look and sound like water.
+
+### Improved
+
+- **A waterfall you believe.** The falls are a bright, moving column of water with white water and drifting mist at their foot, and the rock behind them is dark and wet, with leaks and moss. At night they shine in the moonlight instead of standing as a black column.
+- **Even in a storm.** The table-land shelters its bay, so a sandstorm there thins enough for the falls to stay in view.
+- **Water at the edges.** The pool and the stream have a soft shoreline with foam, and the stream visibly flows east.
+- **Hear them coming.** The falls roar from their foot, and you can hear them from far down the track.
+
+### Fixed
+
+- The ambient sound of the Weeping Wall, the pump gallery, Dunewell and Hollowmere played once and then restarted with a short gap. It now loops without a break.
+- A visible step ran across the water where the stream leaves the falls' pool. The two now meet at one level.
+
+Saves, settings, photos and Scrap Marks carry over.
+
 ## 1.1.0 fix 3 (1.1.0.3, 2026-11-08)
 
 Fix 3 for 1.1: the first step in finishing the Weeping Wall, the water-carved table-land in the north-west.
