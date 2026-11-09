@@ -2,6 +2,22 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 1.1.0 fix 5 (1.1.0.5, 2026-11-09)
+
+Fix 5 for 1.1: the Weeping Wall stands as a weathered sandstone escarpment, with a climb you can read.
+
+### Improved
+
+- **A wall with a shape.** Sandstone fronts, buttresses and fallen blocks now stand against the table-land's cliff, with a second row high on the wall, so its face breaks up into bays and fins as you come up the track.
+- **Rock that reads as rock.** The sandstone beds run level through the wall at every distance instead of smearing into long stripes.
+- **A climb you can see.** The ledges up the flank are broken sandstone shelves with sand-dusted tops, so the next landing shows from below. Trees no longer hide the foot of the climb or the stream's view of the falls.
+
+### Fixed
+
+- The settlers' camp, their relay mast and the trees round the falls stood far out in the desert, about 450 m from the Weeping Wall. They are back at the falls and on the table-land.
+
+Saves, settings, photos and Scrap Marks carry over.
+
 ## 1.1.0 fix 4 (1.1.0.4, 2026-11-08)
 
 Fix 4 for 1.1: the Weeping Wall's falls finally look and sound like water.
