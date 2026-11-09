@@ -2,6 +2,27 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 1.1.0 fix 7 (1.1.0.7, 2026-11-09)
+
+Fix 7 for 1.1: the pump gallery behind the Weeping Wall is a working water works you can read by eye and by ear.
+
+### New
+
+- **Hear the water works.** Water runs audibly in every open channel, each gate's wheel grinds as it turns, and the turbine thumps faster as it comes up to speed.
+- **The settlers' gallery.** Hewn rock walls, a pressure main with a valve ahead of each gate, dead lamps on roof beams, and a repair bench, rack and buckets by the turbine.
+
+### Improved
+
+- **See the puzzle.** Water now flows down each open gutter and splashes where it spills over the floor or fills the brake cylinder.
+- **The gates stand clear of the rock.** The three sluice gates and the header trough were set into the wall; they now stand in front of it, in daylight and in the headlamp.
+- **The same gallery on every setting.** The gallery is now a dim slot lit from its mouth on Low, Medium, High and Ultra alike; on lower settings the noon sun no longer shines through the rock.
+
+### Fixed
+
+- **Streaks on the gallery floor.** The floor no longer smears into long stretched streaks.
+
+Saves, settings, photos and Scrap Marks carry over.
+
 ## 1.1.0 fix 6 (1.1.0.6, 2026-11-09)
 
 Fix 6 for 1.1: the settlers' lookout stands on top of the Weeping Wall, and the climb starts where you can reach it.
