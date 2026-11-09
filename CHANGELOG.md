@@ -2,6 +2,25 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 1.1.0 fix 6 (1.1.0.6, 2026-11-09)
+
+Fix 6 for 1.1: the settlers' lookout stands on top of the Weeping Wall, and the climb starts where you can reach it.
+
+### New
+
+- **The settlers' lookout.** A plank platform on a bolted steel frame stands on the caprock beside the relay mast, with a torn shade, a salvaged rangefinder and the settlers' water cans. A ramp leads up onto the deck.
+
+### Improved
+
+- **A way onto the climb.** Fallen rock at the foot of the first ledge and beside the fifth gives a scrapper with a thruster a step up from the sand, from more than one side.
+- **Rock at the foot.** Broken sandstone stands against the cliff beside the falls and the gallery's mouth.
+
+### Fixed
+
+- **A black patch over the pump gallery.** The table-land over the gallery's roof showed a dark patch and an open shaft at its back. The roof now reads as caprock, with fallen slabs over the slot.
+
+Saves, settings, photos and Scrap Marks carry over.
+
 ## 1.1.0 fix 5 (1.1.0.5, 2026-11-09)
 
 Fix 5 for 1.1: the Weeping Wall stands as a weathered sandstone escarpment, with a climb you can read.
