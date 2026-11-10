@@ -2,6 +2,24 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 1.1.0 fix 8 (1.1.0.8, 2026-11-10)
+
+Fix 8 for 1.1: the settlers' green and camp at the Weeping Wall look lived in, and the plants by the water read green and wet.
+
+### New
+
+- **The settlers' camp.** A cold fire pit, a canvas lean-to with a bedroll, dead lanterns, barrels, buckets and a water filter by the dew traps, all left as the settlers abandoned them.
+- **Greener banks.** Sedges, low ground cover and moss-grown stones line the pool and both banks of the stream.
+- **A cable to the relay mast.** A worn cable runs over the rock from the lookout to the settlers' relay mast.
+- **A pebble stream bed.** The stream runs over rounded river pebbles.
+
+### Improved
+
+- **Wet plants.** The stems and reeds by the falls are green and spray-wet instead of black.
+- **A clearer view along the stream.** Plants no longer grow right in front of the camera where you stop to look.
+
+Saves, settings, photos and Scrap Marks carry over.
+
 ## 1.1.0 fix 7 (1.1.0.7, 2026-11-09)
 
 Fix 7 for 1.1: the pump gallery behind the Weeping Wall is a working water works you can read by eye and by ear.
