@@ -2,6 +2,17 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 1.1.0 fix 9 (1.1.0.9, 2026-11-10)
+
+Fix 9 for 1.1: WREN asks for a picture of the Weeping Wall's falls, and the settlers left something behind in their camp.
+
+### New
+
+- **A new photo job.** Once you have reached the Weeping Wall, WREN asks you to photograph the falls, the whole drop from the lip to the pool.
+- **The settlers' cache.** A salvage crate in the shade of the camp's lean-to still holds a little scrap.
+
+Saves, settings, photos and Scrap Marks carry over. A save already past the Weeping Wall gets the new job too; on a save that has finished the game it arrives as a message in the journal.
+
 ## 1.1.0 fix 8 (1.1.0.8, 2026-11-10)
 
 Fix 8 for 1.1: the settlers' green and camp at the Weeping Wall look lived in, and the plants by the water read green and wet.
@@ -600,25 +611,3 @@ The first big update after release: a full director's pass over the story, the p
   so you can drag it in. You send the issue with your own GitHub account; the
   game never posts anything by itself.
 - The shortcut is listed on the controls page and in the controls help.
-
-## 0.5.0 (0.5.0.0, 2026-10-29)
-
-The first public release of ScrappWars.
-
-### What is in it
-
-- The whole desert of Kessra: home by the crashed freighter, the Dawnbreaker,
-  Dunewell, the Glass Plain, Canyon City and its caves, the Salt Graveyard,
-  the Scorch, the crater sea and green Hollowmere, joined by transitions,
-  ridges, dry riverbeds and landmarks.
-- WREN's main story and side jobs, memory logs read aloud, contracts, traders'
-  camps, the scrap train, stranded droids, vaults, beacons and photo jobs.
-- Four difficulties (Easy, Medium, Hard, Ultra), switchable at any time, and a
-  rescue network that brings SD-7 back to an explored base.
-- The intro film, day and night, storms, eclipses, volumetric clouds on High
-  and Ultra.
-- Updates from inside the game (Settings > Updates...).
-
-### Install
-
-Unpack the zip and run `ScrappWarsUpdater.exe` (see the README).
