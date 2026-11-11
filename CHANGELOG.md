@@ -2,6 +2,20 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 1.2.0 (1.2.0.0, 2026-11-11)
+
+The "Weeping Wall" update: the water-carved table-land in the north-west is finished, from falls that pour like real water to the settlers' pump gallery, their camp, a climb you can read and a lookout over all of Kessra. This is version 1.2: it gathers everything the 1.1 fixes built there and adds the last polish.
+
+### What it brings
+
+- **Falls that fall.** The water pours over the lip in ropes and veils, tears into spray at its foot and boils white where it meets the pool. Fine mist hangs in the bay and drifts with the wind, and the water takes the colour of the light on it: warm at dusk, pale under the moon.
+- **A new Scrap Mark.** "Every Drop Counted" joins the Photography set for a picture of the falls: 61 marks in all. A Lens Medal you had already won stays yours.
+- **The whole region, together.** The sandstone escarpment and its ledges, the settlers' lookout on top, the working pump gallery behind the water, the green along the stream, the abandoned camp with its cache, and WREN's photo job, as they arrived in 1.1.0.3 to 1.1.0.9.
+
+### Fixed
+
+- Debris in the settlers' camp no longer hangs over a dip in the sand.
+
 ## 1.1.0 fix 9 (1.1.0.9, 2026-11-10)
 
 Fix 9 for 1.1: WREN asks for a picture of the Weeping Wall's falls, and the settlers left something behind in their camp.
@@ -598,16 +612,3 @@ The first big update after release: a full director's pass over the story, the p
 - Display page: render scale (FSR), vsync, fps limit, volumetric clouds and GI switches.
 - Separate gamepad stick speed, inversion and deadzone.
 - A journal next to the map, clearer warnings, and the bug reporter (Ctrl+Alt+B) can attach your save and session log.
-
-## 0.5.0 fix 1 (0.5.0.1, 2026-10-29)
-
-### New
-
-- **Report a bug from inside the game.** Press Ctrl+Alt+B wherever something
-  goes wrong. The game saves a screenshot, pauses and asks what happened. "Open
-  on GitHub" opens a new issue in your browser, already filled in with your text
-  and the game's version, place and settings (optionally the last lines of the
-  log, without paths or your user name), and shows the screenshot in its folder
-  so you can drag it in. You send the issue with your own GitHub account; the
-  game never posts anything by itself.
-- The shortcut is listed on the controls page and in the controls help.
