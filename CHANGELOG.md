@@ -2,6 +2,24 @@
 
 Every released version of ScrappWars, newest first. Downloads: [releases](https://github.com/RobertAgterhuis/Game-ScrappWars/releases).
 
+## 1.2.0 fix 5 (1.2.0.5, 2026-11-15)
+
+Fix 5 for 1.2: SD-7 no longer drives into, sinks into or wedges under a long list of wrecks, rocks and machines across Kessra.
+
+### Fixed
+
+- **The Patient Wren's roof**: its hatches, the tower's foot and the torn plates by the rift are solid; SD-7 and the camera no longer pass into them.
+- **The Patient Wren's engine bell** can no longer be driven into: SD-7 slipped through its skin and wedged under it.
+- **Canyon City's foundry**: magnet legs no longer slide under the roof's edge.
+- **The Long Night**: magnet legs no longer slip into the thin plates inside her, or under her strapped pod outside.
+- **The home pod's hull** no longer lets SD-7 press into it from below.
+- **The Dawnbreaker**: the torn aft section's frames and girders and the bridge's power panel are solid.
+- **Signal beacons**: a broken beacon's tilted dish is solid where you see it.
+- **Rocks and bones**: the buttes' scree, a carcass's skull and the rocks at the foot of the Weeping Wall hold SD-7 where you see them.
+- **The caves' roof** has no more clefts by the cliff where SD-7 dropped in and wedged.
+- **The east supply vault**: SD-7 can no longer get trapped in the sand groove behind it.
+- **The coolant stations'** pipes and vent are solid.
+
 ## 1.2.0 fix 4 (1.2.0.4, 2026-11-14)
 
 Fix 4 for 1.2: the ground round Dunewell is ready for what lies under it, and SD-7 no longer sinks into steep sand or gets stuck round the town's well.
@@ -505,18 +523,3 @@ A fix for the end of the intro film.
 - **The Patient Wren's crash now lands properly:** she glides in, bellies into the sand, ploughs a long trench and skids to rest, throwing up a wall of dust, flying plates and fire, with a shock front racing across the dunes.
 - The music hits on the moment of impact.
 - Screen shake in the intro follows your screen-shake setting.
-
-## 0.8.0 fix 1 (0.8.0.1, 2026-10-30)
-
-The intro film and the website catch up with the new look of Kessra.
-
-### Intro film
-
-- **Kessra as it looks now:** the opening rises on the banded giant Vashka over the Dawnbreaker, the dogfight flies under both suns, the ground war shimmers in the midday heat, and the Patient Wren falls through a binary sunset.
-- **The Wren lands broken,** the way you find her in the game.
-- The Helion hover tanks are now in frame as they charge the six-legged Sable walkers.
-- The intro desert no longer shows stray green and white patches.
-
-### Website
-
-- New screenshots of every place on the site, taken in the current game, and a new trailer.
